@@ -16,4 +16,20 @@
         android:text="@string/login"
         android:id="@+id/button_login"/>
 
+    <Button
+        android:id="@+id/tskdt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="taskdetail"
+        android:onClick="taskdetailonclick"/>
+
+    <Button
+        android:id="@+id/chkbx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="checkbox"
+        android:onClick="checkboxonclick"/>
+
+
+
 </LinearLayout>
