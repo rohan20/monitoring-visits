@@ -8,10 +8,12 @@ import android.widget.Button;
 
 import com.rohantaneja.monitoringvisits.ui.LoginActivity;
 import com.rohantaneja.monitoringvisits.ui.SignUpActivity;
+import com.rohantaneja.monitoringvisits.ui.TaskDetailActivity;
 import com.rohantaneja.monitoringvisits.ui.ViewPager1Activity;
 
 public class MainActivity extends AppCompatActivity {
 
+    Button Mapact,checkboxac;
     Button login,signup,viewpager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,4 +49,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void checkboxonclick(View view) {
+        Intent intent = new Intent(MainActivity.this,CheckboxActivity.class);
+        startActivity(intent);
+    }
+
+    public void taskdetailonclick(View view) {
+        Intent intent = new Intent(MainActivity.this, TaskDetailActivity.class);
+        startActivity(intent);
+    }
 }

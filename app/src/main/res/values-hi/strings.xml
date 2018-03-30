@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">मॉनिटरिंग विज़िट्स</string>
+    <string name="login">Log In</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="submit">Submit</string>
+    <string name="email">Email Id</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="how_is_the_quality_of_water">पानी की गुणवत्ता कितनी है?</string>
+    <string name="poor">बहुत बुरा</string>
+    <string name="normal">साधारण</string>
+    <string name="good">अच्छा</string>
+    <string name="what_are_the_reasons_for_lack_of_water_supply">पानी की आपूर्ति की कमी के कारण क्या हैं?</string>
+    <string name="corrupt_suppliers">भ्रष्ट आपूर्तिकर्ताओं</string>
+    <string name="water_is_supplied_but_it_is_undrinkable">पानी की आपूर्ति की जाती है लेकिन यह अबाधित नहीं है</string>
+    <string name="faulty_water_tanks_that_leak_water">दोषपूर्ण पानी के टैंक जो पानी रिसाव करते हैं</string>
+    <string name="internal_panchayat_issues">आंतरिक पंचायत मुद्दे</string>
+    <string name="false_report_water_quality_is_perfect">झूठी रिपोर्ट: पानी की गुणवत्ता सही है</string>
+    <string name="save">डेटा जमा करें</string>
+    <string name="cancel">इसे रद्द करें</string>
+    <string name="saved">डेटा प्रस्तुत किया गया है</string>
+</resources>

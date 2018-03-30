@@ -1,5 +1,6 @@
 package com.rohantaneja.monitoringvisits.ui;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,19 +12,28 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.rohantaneja.monitoringvisits.BaseActivity;
 import com.rohantaneja.monitoringvisits.R;
+import com.rohantaneja.monitoringvisits.model.User;
+import com.rohantaneja.monitoringvisits.network.RESTAdapter;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends BaseActivity {
 
     EditText email,password;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         email = findViewById(R.id.edit_text_email_login);
 
+        sharedPreferences = getSharedPreferences("SIH",MODE_PRIVATE);
         password=findViewById(R.id.edittext_password_login);
         password.setOnEditorActionListener(new EditText.OnEditorActionListener(){
             @Override
@@ -61,9 +71,31 @@ public class LoginActivity extends BaseActivity {
             //Toast.makeText(LoginActivity.this,"Enter valid Email Address",Toast.LENGTH_SHORT);
             //return true;
         }
-        else
-            text="login pressed";
-        Toast.makeText(LoginActivity.this,text,Toast.LENGTH_SHORT).show();
+        else{
+            Call<User> call = RESTAdapter.getInstance().getMinistryDataAPI().login(emailString,pass);
+            call.enqueue(new Callback<User>() {
+                @Override
+                public void onResponse(Call<User> call, Response<User> response) {
+                    User user = response.body();
+                    if(user != null){
+                        Gson gson = new Gson();
+                        String userString = gson.toJson(user);
+                        sharedPreferences.edit().putString("user",userString);
+                    }
+                    else {
+                        //TODO
+
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<User> call, Throwable t) {
+                    showToast(t.getMessage());
+                }
+            });
+        }
+
+        //Toast.makeText(LoginActivity.this,text,Toast.LENGTH_SHORT).show();
         return true;
     }
 }
