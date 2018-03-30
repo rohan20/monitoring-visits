@@ -18,4 +18,6 @@ public class VisitActivity extends BaseActivity {
         //TODO programmatically display ques
         //TODO check for internet while saving, if no internet, save to local
     }
+
+
 }
