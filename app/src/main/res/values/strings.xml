@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MonitoringVisits</string>
+    <string name="login">Log In</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="submit">Submit</string>
 </resources>
