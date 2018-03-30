@@ -20,4 +20,8 @@
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
     <string name="saved">Saved</string>
+    <string name="name">Name</string>
+    <string name="visit">Visit</string>
+    <string name="logout">Log Out</string>
+
 </resources>
