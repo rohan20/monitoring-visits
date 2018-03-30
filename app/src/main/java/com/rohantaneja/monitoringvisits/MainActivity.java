@@ -6,11 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.rohantaneja.monitoringvisits.ui.LoginActivity;
+import com.rohantaneja.monitoringvisits.ui.SignUpActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button login;
+    Button login,signup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,9 +20,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+                Intent intent = new Intent(MainActivity.this,SignUpActivity.class);
                 startActivity(intent);
             }
         });
     }
+
+
 }
