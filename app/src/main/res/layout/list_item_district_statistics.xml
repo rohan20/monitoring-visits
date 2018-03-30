@@ -60,7 +60,7 @@
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/task_completed_statistic_header" />
+         app:layout_constraintTop_toBottomOf="@id/task_completed_statistic_header" />
 
     <TextView
         android:id="@+id/visits_completed_statistic_header"

@@ -4,9 +4,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.rohantaneja.monitoringvisits.R;
-import com.rohantaneja.monitoringvisits.model.District;
-import com.rohantaneja.monitoringvisits.model.DistrictStatistic;
-import com.rohantaneja.monitoringvisits.model.DistrictStatisticList;
 import com.thoughtbot.expandablerecyclerview.viewholders.ChildViewHolder;
 
 /**
