@@ -1,36 +1,23 @@
 package com.rohantaneja.monitoringvisits.model;
 
-import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
-
-import java.util.List;
-
 /**
  * Created by rohantaneja on 30/03/18.
  */
 
-public class District extends ExpandableGroup<DistrictStatistic> {
+public class District {
 
     private int districtId;
     private String districtName;
-    private List<DistrictStatistic> districtStatisticList;
+    private int numberOfTasksAssigned;
+    private int numberOfTasksCompleted;
+    private int numberOfVisitsMade;
 
-    public District(int districtId, String districtName, List<DistrictStatistic> districtStatisticList) {
-        super(districtName, districtStatisticList);
+    public District(int districtId, String districtName, int numberOfTasksAssigned, int numberOfTasksCompleted, int numberOfVisitsMade) {
         this.districtId = districtId;
         this.districtName = districtName;
-        this.districtStatisticList = districtStatisticList;
-    }
-
-    public void setDistrictId(int districtId) {
-        this.districtId = districtId;
-    }
-
-    public void setDistrictName(String districtName) {
-        this.districtName = districtName;
-    }
-
-    public void setDistrictStatisticList(List<DistrictStatistic> districtStatisticList) {
-        this.districtStatisticList = districtStatisticList;
+        this.numberOfTasksAssigned = numberOfTasksAssigned;
+        this.numberOfTasksCompleted = numberOfTasksCompleted;
+        this.numberOfVisitsMade = numberOfVisitsMade;
     }
 
     public int getDistrictId() {
@@ -41,7 +28,35 @@ public class District extends ExpandableGroup<DistrictStatistic> {
         return districtName;
     }
 
-    public List<DistrictStatistic> getDistrictStatisticList() {
-        return districtStatisticList;
+    public int getNumberOfTasksAssigned() {
+        return numberOfTasksAssigned;
+    }
+
+    public int getNumberOfTasksCompleted() {
+        return numberOfTasksCompleted;
+    }
+
+    public int getNumberOfVisitsMade() {
+        return numberOfVisitsMade;
+    }
+
+    public void setDistrictId(int districtId) {
+        this.districtId = districtId;
+    }
+
+    public void setDistrictName(String districtName) {
+        this.districtName = districtName;
+    }
+
+    public void setNumberOfTasksAssigned(int numberOfTasksAssigned) {
+        this.numberOfTasksAssigned = numberOfTasksAssigned;
+    }
+
+    public void setNumberOfTasksCompleted(int numberOfTasksCompleted) {
+        this.numberOfTasksCompleted = numberOfTasksCompleted;
+    }
+
+    public void setNumberOfVisitsMade(int numberOfVisitsMade) {
+        this.numberOfVisitsMade = numberOfVisitsMade;
     }
 }
