@@ -57,8 +57,9 @@ public class LoginActivity extends BaseActivity {
         else if(!emailString.matches(emailPattern))
         {
             Log.wtf("nsfjf",String.valueOf(emailString.matches(emailPattern)));
-            Toast.makeText(LoginActivity.this,"Enter valid Email Address",Toast.LENGTH_SHORT);
-            return true;
+            text="Invalid email";
+            //Toast.makeText(LoginActivity.this,"Enter valid Email Address",Toast.LENGTH_SHORT);
+            //return true;
         }
         else
             text="login pressed";

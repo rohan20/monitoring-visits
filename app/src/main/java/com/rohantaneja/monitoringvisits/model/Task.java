@@ -23,6 +23,14 @@ public class Task {
     private String status;
     private String visitType;
 
+    public int getProgrammeId() {
+        return programmeId;
+    }
+
+    public void setProgrammeId(int programmeId) {
+        this.programmeId = programmeId;
+    }
+
     public int getId() {
         return id;
     }
