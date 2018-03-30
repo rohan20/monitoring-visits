@@ -8,10 +8,11 @@ import android.widget.Button;
 
 import com.rohantaneja.monitoringvisits.ui.LoginActivity;
 import com.rohantaneja.monitoringvisits.ui.SignUpActivity;
+import com.rohantaneja.monitoringvisits.ui.ViewPager1Activity;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button login,signup;
+    Button login,signup,viewpager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +33,15 @@ public class MainActivity extends AppCompatActivity {
             {
                 Intent intent = new Intent(MainActivity.this,SignUpActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        viewpager = findViewById(R.id.viewpager);
+        viewpager.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+            Intent intent = new Intent(MainActivity.this, ViewPager1Activity.class);
+            startActivity(intent);
             }
         });
     }
