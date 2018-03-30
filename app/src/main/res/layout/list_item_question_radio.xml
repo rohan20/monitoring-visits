@@ -16,7 +16,7 @@
             android:id="@+id/question_text_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="How is the quality of water?"
+            android:text="@string/how_is_the_quality_of_water"
             android:textSize="22sp" />
 
         <android.support.v7.widget.AppCompatRadioButton
@@ -32,7 +32,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:text="Poor"
+            android:text="@string/poor"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@id/option_1_radio_button"
             app:layout_constraintStart_toEndOf="@id/option_1_radio_button"
@@ -51,7 +51,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:text="Normal"
+            android:text="@string/normal"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@id/option_2_radio_button"
             app:layout_constraintStart_toEndOf="@id/option_2_radio_button"
@@ -62,7 +62,6 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginTop="8dp"
-            android:checked="true"
             android:gravity="center"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/option_2_radio_button" />
@@ -71,7 +70,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:text="Good"
+            android:text="@string/good"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@id/option_3_radio_button"
             app:layout_constraintStart_toEndOf="@id/option_3_radio_button"
