@@ -8,4 +8,7 @@
     <string name="email">Email Id</string>
     <string name="sign_up">Sign Up</string>
     <string name="name">Name</string>
+    <string name="visit">Visit</string>
+    <string name="logout">Log Out</string>
+
 </resources>

@@ -15,17 +15,19 @@
         android:theme="@style/AppTheme">
         <activity android:name=".BaseActivity" />
         <activity android:name=".ui.DistrictsActivity">
-        </activity>
-        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity">
+
+        </activity>
         <activity android:name=".ui.TaskDetailActivity"/>
         <activity android:name=".ui.SignUpActivity" />
-        <activity android:name=".ui.LoginActivity"></activity>
+        <activity android:name=".ui.LoginActivity" />
+        <activity android:name=".ui.ProfileActivity"></activity>
     </application>
 
 </manifest>
