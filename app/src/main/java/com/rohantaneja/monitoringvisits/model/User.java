@@ -1,16 +1,21 @@
 package com.rohantaneja.monitoringvisits.model;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by ralph on 30/03/18.
  */
 
 public class User {
 
+    @SerializedName("oid")
     private int id;
     private String name;
+    @SerializedName("emailId")
     private String email;
+    @SerializedName("tokenId")
     private String token;
-    private boolean isAdmin;
+    private String adminRights;
 
     public int getId() {
         return id;
@@ -44,11 +49,8 @@ public class User {
         this.token = token;
     }
 
-    public boolean isAdmin() {
-        return isAdmin;
+    public boolean isAdmin(){
+        return (adminRights != null && adminRights.toUpperCase().equals("YES"));
     }
 
-    public void setAdmin(boolean admin) {
-        isAdmin = admin;
-    }
 }

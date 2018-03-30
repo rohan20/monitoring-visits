@@ -13,7 +13,7 @@ import retrofit2.http.Query;
 
 public interface MinistryDataAPI {
 
-    @POST("/users/signup")
+    @POST("officerService/signup")
     Call<User> signUp(@Query("name") String name, @Query("email") String email,@Query("password") String password);
 
     @POST("/users/login")
