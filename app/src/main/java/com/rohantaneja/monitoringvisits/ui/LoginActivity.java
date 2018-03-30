@@ -1,5 +1,7 @@
 package com.rohantaneja.monitoringvisits.ui;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,11 +29,16 @@ public class LoginActivity extends BaseActivity {
     EditText email,password;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     SharedPreferences sharedPreferences;
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         email = findViewById(R.id.edit_text_email_login);
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Loading");
 
         sharedPreferences = getSharedPreferences("SIH",MODE_PRIVATE);
         password=findViewById(R.id.edittext_password_login);
@@ -56,6 +63,12 @@ public class LoginActivity extends BaseActivity {
         login();
     }
 
+    public void goToRegister(View view){
+        Intent intent = new Intent(this,SignUpActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
     private boolean login()
     {
         String emailString=email.getText().toString(),pass=password.getText().toString();
@@ -72,24 +85,30 @@ public class LoginActivity extends BaseActivity {
             //return true;
         }
         else{
+            progressDialog.show();
             Call<User> call = RESTAdapter.getInstance().getMinistryDataAPI().login(emailString,pass);
             call.enqueue(new Callback<User>() {
                 @Override
                 public void onResponse(Call<User> call, Response<User> response) {
                     User user = response.body();
+                    progressDialog.dismiss();
                     if(user != null){
                         Gson gson = new Gson();
                         String userString = gson.toJson(user);
                         sharedPreferences.edit().putString("user",userString).apply();
+                        showToast("Success");
                     }
                     else {
                         //TODO
+                        showToast("User null");
 
                     }
                 }
 
                 @Override
                 public void onFailure(Call<User> call, Throwable t) {
+
+                    progressDialog.dismiss();
                     showToast(t.getMessage());
                 }
             });
