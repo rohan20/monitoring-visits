@@ -54,9 +54,9 @@ public class LoginActivity extends BaseActivity {
         {
             text="Enter both email and password";
         }
-        else if(!email.getText().toString().matches(emailPattern))
+        else if(!emailString.matches(emailPattern))
         {
-            Log.wtf("nsfjf",String.valueOf(email.getText().toString().matches(emailPattern)));
+            Log.wtf("nsfjf",String.valueOf(emailString.matches(emailPattern)));
             Toast.makeText(LoginActivity.this,"Enter valid Email Address",Toast.LENGTH_SHORT);
             return true;
         }
