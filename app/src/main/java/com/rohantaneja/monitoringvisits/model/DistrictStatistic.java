@@ -7,7 +7,7 @@ import android.os.Parcelable;
  * Created by rohantaneja on 30/03/18.
  */
 
-class DistrictStatistic implements Parcelable {
+public class DistrictStatistic implements Parcelable {
 
     private String statisticName;
     private long statisticValue;
