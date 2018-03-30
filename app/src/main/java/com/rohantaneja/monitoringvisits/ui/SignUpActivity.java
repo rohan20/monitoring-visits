@@ -79,7 +79,7 @@ public class SignUpActivity extends BaseActivity {
                     if(user != null){
                         Gson gson = new Gson();
                         String userString = gson.toJson(user);
-                        sharedPreferences.edit().putString("user",userString);
+                        sharedPreferences.edit().putString("user",userString).apply();l
                     }
                     else {
                        //TODO

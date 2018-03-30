@@ -19,6 +19,15 @@ public class Question {
     private boolean required;
     private String visitType;
     private int programmeId;
+    private String questionType;
+
+    public String getQuestionType() {
+        return questionType;
+    }
+
+    public void setQuestionType(String questionType) {
+        this.questionType = questionType;
+    }
 
     public int getId() {
         return id;
