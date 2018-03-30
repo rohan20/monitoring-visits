@@ -4,9 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context="com.rohantaneja.monitoringvisits.ui.VisitActivity">
 
     <!--TODO empty view for providing location-->
+    <ImageView
+        android:id="@+id/no_location_image_view"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="@null"
+        android:src="@drawable/location"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/no_location_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Please provide your location to start the visit"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/no_location_image_view" />
+
+    <Button
+        android:id="@+id/no_location_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/rounded_corners"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"
+        android:text="Provide Location"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/no_location_text_view" />
 
     <!--TODO A view to display location-->
 
@@ -17,6 +54,5 @@
     <!--TODO Toggle to see if requires another visit-->
 
     <!--TODO optional remark-->
-
 
 </android.support.constraint.ConstraintLayout>
