@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "767789586918",
+    "firebase_url": "https://monitoring-visits.firebaseio.com",
+    "project_id": "monitoring-visits",
+    "storage_bucket": "monitoring-visits.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767789586918:android:5c7087f061f28ea2",
+        "android_client_info": {
+          "package_name": "com.rohantaneja.monitoringvisits"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767789586918-d76g7g5hu0540acjk24kptjdk05o68ua.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rohantaneja.monitoringvisits",
+            "certificate_hash": "e2d82b841b925a7f0fa11cefe0a9fa8d538f3540"
+          }
+        },
+        {
+          "client_id": "767789586918-8c988ilvaogjmlo52n4m9u9ko2314d9s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1uv1GDXPl199dJ6DQPvahZWlqxEvxmGI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767789586918-8c988ilvaogjmlo52n4m9u9ko2314d9s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
