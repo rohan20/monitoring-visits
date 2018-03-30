@@ -3,6 +3,7 @@ package com.rohantaneja.monitoringvisits.model;
 import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +22,6 @@ public class Visit {
     @PrimaryKey
     @SerializedName("vid")
     private int id;
-    @SerializedName("tid")
     private int taskId;
     @SerializedName("remarkOfficer")
     private String officerRemark;
@@ -32,6 +32,49 @@ public class Visit {
     @Embedded
     @SerializedName("actionId")
     private VisitAction action;
+    @Ignore
+    @SerializedName("tid")
+    private Task task;
+
+    public String getOfficerRemark() {
+        return officerRemark;
+    }
+
+    public void setOfficerRemark(String officerRemark) {
+        this.officerRemark = officerRemark;
+    }
+
+    public String getAdminRemark() {
+        return adminRemark;
+    }
+
+    public void setAdminRemark(String adminRemark) {
+        this.adminRemark = adminRemark;
+    }
+
+    public Double getLat() {
+        return lat;
+    }
+
+    public void setLat(Double lat) {
+        this.lat = lat;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public Task getTask() {
+        return task;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
+    }
 
     public int getId() {
         return id;
