@@ -1,18 +1,21 @@
 package com.rohantaneja.monitoringvisits.model;
 
+import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
+
 import java.util.List;
 
 /**
  * Created by rohantaneja on 30/03/18.
  */
 
-public class District {
+public class District extends ExpandableGroup<DistrictStatistic> {
 
     private int districtId;
     private String districtName;
     private List<DistrictStatistic> districtStatisticList;
 
     public District(int districtId, String districtName, List<DistrictStatistic> districtStatisticList) {
+        super(districtName, districtStatisticList);
         this.districtId = districtId;
         this.districtName = districtName;
         this.districtStatisticList = districtStatisticList;
