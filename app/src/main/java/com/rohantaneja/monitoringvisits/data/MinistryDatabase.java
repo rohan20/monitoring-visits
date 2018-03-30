@@ -35,7 +35,7 @@ public abstract class MinistryDatabase extends RoomDatabase {
         return INSTANCE;
     }
 
-    abstract MinistryDAO getMinistryDAO();
+    public abstract MinistryDAO getMinistryDAO();
 
 
 }

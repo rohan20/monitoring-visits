@@ -22,6 +22,9 @@ public interface MinistryDAO {
     @Insert
     void insertTasks(ArrayList<Task> tasks);
 
+    @Insert
+    void insertTask(Task task);
+
     @Query("SELECT * FROM tasks WHERE districtName = :districtName")
     List<Task> getTasksForDistrict(String districtName);
 
