@@ -24,5 +24,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/district_name_text_view" />
 
-
 </android.support.constraint.ConstraintLayout>
