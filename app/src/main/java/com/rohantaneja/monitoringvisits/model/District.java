@@ -8,14 +8,14 @@ import java.util.List;
  * Created by rohantaneja on 30/03/18.
  */
 
-public class District extends ExpandableGroup<DistrictStatistic> {
+public class District extends ExpandableGroup<DistrictStatisticList> {
 
     private int districtId;
     private String districtName;
-    private List<DistrictStatistic> districtStatisticList;
+    private DistrictStatisticList districtStatisticList;
 
-    public District(int districtId, String districtName, List<DistrictStatistic> districtStatisticList) {
-        super(districtName, districtStatisticList);
+    public District(int districtId, String districtName, DistrictStatisticList districtStatisticList) {
+        super(districtName, (List<DistrictStatisticList>) districtStatisticList);
         this.districtId = districtId;
         this.districtName = districtName;
         this.districtStatisticList = districtStatisticList;
@@ -29,7 +29,7 @@ public class District extends ExpandableGroup<DistrictStatistic> {
         this.districtName = districtName;
     }
 
-    public void setDistrictStatisticList(List<DistrictStatistic> districtStatisticList) {
+    public void setDistrictStatisticList(DistrictStatisticList districtStatisticList) {
         this.districtStatisticList = districtStatisticList;
     }
 
@@ -41,7 +41,7 @@ public class District extends ExpandableGroup<DistrictStatistic> {
         return districtName;
     }
 
-    public List<DistrictStatistic> getDistrictStatisticList() {
+    public DistrictStatisticList getDistrictStatisticList() {
         return districtStatisticList;
     }
 }

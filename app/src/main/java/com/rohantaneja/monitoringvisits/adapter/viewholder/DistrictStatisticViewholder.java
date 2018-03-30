@@ -6,6 +6,7 @@ import android.widget.TextView;
 import com.rohantaneja.monitoringvisits.R;
 import com.rohantaneja.monitoringvisits.model.District;
 import com.rohantaneja.monitoringvisits.model.DistrictStatistic;
+import com.rohantaneja.monitoringvisits.model.DistrictStatisticList;
 import com.thoughtbot.expandablerecyclerview.viewholders.ChildViewHolder;
 
 /**
@@ -25,10 +26,10 @@ public class DistrictStatisticViewholder extends ChildViewHolder {
         visitsNumberTextView = itemView.findViewById(R.id.visits_completed_statistic_value);
     }
 
-    public void bindData(District district) {
-        tasksAssignedValueTextView.setText(String.valueOf(district.getDistrictStatisticList().get(0).getStatisticValue()));
-        tasksCompletedValueTextView.setText(String.valueOf(district.getDistrictStatisticList().get(1).getStatisticValue()));
-        tasksAssignedValueTextView.setText(String.valueOf(district.getDistrictStatisticList().get(2).getStatisticValue()));
+    public void bindData(DistrictStatisticList districtStatisticList) {
+        tasksAssignedValueTextView.setText(String.valueOf(districtStatisticList.getDistrictStatisticList().get(0).getStatisticValue()));
+        tasksCompletedValueTextView.setText(String.valueOf(districtStatisticList.getDistrictStatisticList().get(1).getStatisticValue()));
+        visitsNumberTextView.setText(String.valueOf(districtStatisticList.getDistrictStatisticList().get(2).getStatisticValue()));
     }
 
 }
