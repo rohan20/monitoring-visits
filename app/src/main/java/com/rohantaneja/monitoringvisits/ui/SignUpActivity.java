@@ -1,7 +1,9 @@
 package com.rohantaneja.monitoringvisits.ui;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -79,11 +81,15 @@ public class SignUpActivity extends BaseActivity {
                     if(user != null){
                         Gson gson = new Gson();
                         String userString = gson.toJson(user);
-                        sharedPreferences.edit().putString("user",userString).apply();l
+                        sharedPreferences.edit().putString("user",userString).apply();
+                        Log.w("token signup",sharedPreferences.getString("user","null"));
+                        Intent intent = new Intent(SignUpActivity.this,ProfileActivity.class);
+                        startActivity(intent);
+
                     }
                     else {
                        //TODO
-
+                        Log.wtf("error:","no data received");
                     }
                 }
 
@@ -94,6 +100,7 @@ public class SignUpActivity extends BaseActivity {
             });
 
             Toast.makeText(SignUpActivity.this,"Success!",Toast.LENGTH_LONG).show();
+
         }
 
     }

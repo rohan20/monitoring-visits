@@ -22,7 +22,7 @@ public class RESTAdapter {
 
     private RESTAdapter() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://localhost:8080/SIHMonitoring/Rest/")
+                .baseUrl("http://192.168.43.9:8080/SIHMonitoring/Rest/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

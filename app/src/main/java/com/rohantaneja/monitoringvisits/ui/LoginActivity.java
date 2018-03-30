@@ -1,5 +1,6 @@
 package com.rohantaneja.monitoringvisits.ui;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -34,13 +35,19 @@ public class LoginActivity extends BaseActivity {
         email = findViewById(R.id.edit_text_email_login);
 
         sharedPreferences = getSharedPreferences("SIH",MODE_PRIVATE);
+
+        if(sharedPreferences.contains("user"))
+        {
+            Log.wtf("token:",sharedPreferences.getString("user","temp"));
+            Intent intent = new Intent(LoginActivity.this,ProfileActivity.class);
+            startActivity(intent);
+        }
         password=findViewById(R.id.edittext_password_login);
         password.setOnEditorActionListener(new EditText.OnEditorActionListener(){
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if(i==EditorInfo.IME_ACTION_DONE)
                 {
-                    Toast.makeText(LoginActivity.this,"done pressed",Toast.LENGTH_LONG).show();
                     login();
                 }
                 return false;
@@ -63,16 +70,19 @@ public class LoginActivity extends BaseActivity {
         if(emailString.isEmpty() || pass.isEmpty())
         {
             text="Enter both email and password";
+            Toast.makeText(LoginActivity.this,text,Toast.LENGTH_SHORT).show();
         }
         else if(!emailString.matches(emailPattern))
         {
-            Log.wtf("nsfjf",String.valueOf(emailString.matches(emailPattern)));
+            //Log.wtf("nsfjf",String.valueOf(emailString.matches(emailPattern)));
             text="Invalid email";
-            //Toast.makeText(LoginActivity.this,"Enter valid Email Address",Toast.LENGTH_SHORT);
+            Toast.makeText(LoginActivity.this,text,Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this,"Enter valid Email Address",Toast.LENGTH_SHORT);
             //return true;
         }
         else{
             Call<User> call = RESTAdapter.getInstance().getMinistryDataAPI().login(emailString,pass);
+            Log.wtf("URL Called", call.request().url() + "");
             call.enqueue(new Callback<User>() {
                 @Override
                 public void onResponse(Call<User> call, Response<User> response) {
@@ -84,6 +94,7 @@ public class LoginActivity extends BaseActivity {
                     }
                     else {
                         //TODO
+                        Log.wtf("error:","no data received");
 
                     }
                 }
@@ -95,7 +106,7 @@ public class LoginActivity extends BaseActivity {
             });
         }
 
-        //Toast.makeText(LoginActivity.this,text,Toast.LENGTH_SHORT).show();
+
         return true;
     }
 }

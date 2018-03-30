@@ -5,18 +5,12 @@
     tools:context=".MainActivity">
 
     <item
-        android:id="@+id/action_favorite"
-        android:orderInCategory="300"
-        android:title="User"
-        app:showAsAction="never"></item>
-
-    <item
         android:id="@+id/profile"
         android:title="Profile"
         app:showAsAction="never"></item>
     <item
-        android:id="@+id/item3"
-        android:title="item3"
+        android:id="@+id/logout"
+        android:title="Logout"
         app:showAsAction="never"></item>
 
 </menu>
