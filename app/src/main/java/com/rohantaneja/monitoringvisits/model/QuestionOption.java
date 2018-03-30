@@ -2,6 +2,7 @@ package com.rohantaneja.monitoringvisits.model;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.PrimaryKey;
 import android.arch.persistence.room.Query;
 
 /**
@@ -15,6 +16,7 @@ import android.arch.persistence.room.Query;
                     childColumns = {"questionId"}))
 public class QuestionOption {
 
+    @PrimaryKey
     private int id;
     private int questionId;
     private String title;
