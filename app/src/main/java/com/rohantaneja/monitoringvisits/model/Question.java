@@ -60,4 +60,12 @@ public class Question {
     public void setProgrammeId(int programmeId) {
         this.programmeId = programmeId;
     }
+
+    public String getFormat() {
+        return format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
+    }
 }
