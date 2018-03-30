@@ -5,9 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
+    android:padding="16dp"
     tools:context="com.rohantaneja.monitoringvisits.ui.VisitActivity">
-
-    <!--TODO empty view for providing location-->
 
     <TextView
         android:id="@+id/no_location_text_view"
@@ -47,7 +46,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/no_location_text_view" />
 
-    <!--TODO A view to display location-->
+    <ImageView
+        android:id="@+id/location_image_view"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="@null"
+        android:src="@drawable/location"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
 
     <!--TODO 2 buttons: Start questionnaire or cancel visit-->
 
