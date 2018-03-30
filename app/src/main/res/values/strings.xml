@@ -24,4 +24,19 @@
     <string name="visit">Visit</string>
     <string name="logout">Log Out</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_view_pager2">ViewPager2Activity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="enter_your_details">Enter your details</string>
+    <string name="new_user_register">New User? Register.</string>
+    <string name="login_title">Login</string>
+    <string name="register">Register</string>
+    <string name="already_registered_login">Already Registered? Login.</string>
+
 </resources>
