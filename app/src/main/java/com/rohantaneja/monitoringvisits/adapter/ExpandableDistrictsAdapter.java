@@ -80,13 +80,12 @@ public class ExpandableDistrictsAdapter extends BaseExpandableListAdapter {
             return inflater.inflate(R.layout.list_item_district_statistics, null);
         }
 
-
         TextView tasksAssingedTextView = view.findViewById(R.id.task_assigned_statistic_value);
         TextView tasksCompletedTExtView = view.findViewById(R.id.task_completed_statistic_value);
         TextView visitsMadeTextView = view.findViewById(R.id.visits_made_statistic_value);
-        tasksAssingedTextView.setText(districtsList.get(groupPosition).getNumberOfTasksAssigned());
-        tasksCompletedTExtView.setText(districtsList.get(groupPosition).getNumberOfTasksCompleted());
-        visitsMadeTextView.setText(districtsList.get(groupPosition).getNumberOfVisitsMade());
+        tasksAssingedTextView.setText(String.valueOf(districtsList.get(groupPosition).getNumberOfTasksAssigned()));
+        tasksCompletedTExtView.setText(String.valueOf(districtsList.get(groupPosition).getNumberOfTasksCompleted()));
+        visitsMadeTextView.setText(String.valueOf(districtsList.get(groupPosition).getNumberOfVisitsMade()));
 
         return view;
     }

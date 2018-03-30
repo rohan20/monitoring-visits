@@ -15,19 +15,36 @@
         android:theme="@style/AppTheme">
         <activity android:name=".BaseActivity" />
         <activity android:name=".ui.DistrictsActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!--  -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".MainActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!--  -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".ui.SignUpActivity" />
+        <activity android:name=".ui.LoginActivity" />
+        <activity android:name=".ui.QuestionnaireActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".CheckboxActivity"/>
         <activity android:name=".ui.TaskDetailActivity"/>
         <activity android:name=".ui.SignUpActivity" />
         <activity android:name=".ui.LoginActivity" />
         <activity android:name=".ui.ProfileActivity"></activity>
+        <activity android:name=".ui.VisitActivity"></activity>
     </application>
 
 </manifest>
