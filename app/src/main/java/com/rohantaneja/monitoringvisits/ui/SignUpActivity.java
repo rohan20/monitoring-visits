@@ -10,13 +10,13 @@ import com.rohantaneja.monitoringvisits.R;
 
 public class SignUpActivity extends BaseActivity {
 
-    EditText username,password,confirmedPassword,email;
+    EditText name,password,confirmedPassword,email;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        username = findViewById(R.id.edit_text_username);
+        name = findViewById(R.id.edit_text_name);
         email=findViewById(R.id.edit_text_email);
         password = findViewById(R.id.edittext_password);
         confirmedPassword = findViewById(R.id.edittext_confirm_password);
@@ -24,9 +24,9 @@ public class SignUpActivity extends BaseActivity {
 
     public void onSubmit(View view)
     {
-        String pass, confPass,emailString,uname;
+        String pass, confPass,emailString,nameString;
         boolean emailCheck, passCheck;
-        uname = username.getText().toString();
+        nameString = name.getText().toString();
         pass = password.getText().toString();
         confPass = confirmedPassword.getText().toString();
         emailString = email.getText().toString();
@@ -40,10 +40,10 @@ public class SignUpActivity extends BaseActivity {
         else
             passCheck=false;
 
-        if(!passCheck || !emailCheck ||pass.length()==0 ||uname.length()==0)
+        if(!passCheck || !emailCheck ||pass.length()==0 ||nameString.length()==0)
         {
             String text="";
-            if(uname.length()==0)
+            if(nameString.length()==0)
                 text="please enter username";
             else if(!emailCheck )
                 text="Invalid Email";

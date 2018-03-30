@@ -2,6 +2,7 @@ package com.rohantaneja.monitoringvisits.model;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.PrimaryKey;
 
 /**
  * Created by ralph on 30/03/18.
@@ -12,6 +13,7 @@ import android.arch.persistence.room.ForeignKey;
         parentColumns = {"id"},childColumns = {"programmeId"}))
 public class Task {
 
+    @PrimaryKey
     private int id;
     private int programmeId;
     private String title;
@@ -20,6 +22,14 @@ public class Task {
     private long deadline;
     private String status;
     private String visitType;
+
+    public int getProgrammeId() {
+        return programmeId;
+    }
+
+    public void setProgrammeId(int programmeId) {
+        this.programmeId = programmeId;
+    }
 
     public int getId() {
         return id;
