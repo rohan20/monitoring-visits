@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.rohantaneja.monitoringvisits.ui.LoginActivity;
 import com.rohantaneja.monitoringvisits.ui.SignUpActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,6 +18,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         login = findViewById(R.id.button_login);
         login.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+        signup = findViewById(R.id.button_signup);
+        signup.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view)
             {
