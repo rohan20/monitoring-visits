@@ -8,16 +8,6 @@
     tools:context="com.rohantaneja.monitoringvisits.ui.VisitActivity">
 
     <!--TODO empty view for providing location-->
-    <ImageView
-        android:id="@+id/no_location_image_view"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:contentDescription="@null"
-        android:src="@drawable/location"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/no_location_text_view"
@@ -27,15 +17,27 @@
         android:gravity="center"
         android:text="Please provide your location to start the visit"
         android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/no_location_image_view" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/no_location_image_view"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@null"
+        android:src="@drawable/location"
+        app:layout_constraintBottom_toTopOf="@id/no_location_text_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/no_location_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/rounded_corners"
         android:paddingEnd="16dp"
         android:paddingStart="16dp"
