@@ -49,7 +49,6 @@ public class DistrictsActivity extends BaseActivity {
     }
 
 
-}
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
