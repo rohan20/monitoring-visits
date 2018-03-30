@@ -19,6 +19,7 @@ public class Question {
     private boolean required;
     private String visitType;
     private int programmeId;
+    private String format;
 
     public int getId() {
         return id;

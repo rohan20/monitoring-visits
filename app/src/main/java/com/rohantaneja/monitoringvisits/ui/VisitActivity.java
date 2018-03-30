@@ -1,6 +1,5 @@
 package com.rohantaneja.monitoringvisits.ui;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.rohantaneja.monitoringvisits.BaseActivity;
