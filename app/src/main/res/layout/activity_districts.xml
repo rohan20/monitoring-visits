@@ -6,4 +6,9 @@
     android:layout_height="match_parent"
     tools:context="com.rohantaneja.monitoringvisits.ui.DistrictsActivity">
 
+    <ExpandableListView
+        android:id="@+id/districts_expandable_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </android.support.constraint.ConstraintLayout>
