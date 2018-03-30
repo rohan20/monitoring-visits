@@ -21,4 +21,7 @@
     <string name="save">डेटा जमा करें</string>
     <string name="cancel">इसे रद्द करें</string>
     <string name="saved">डेटा प्रस्तुत किया गया है</string>
+    <string name="name">नाम</string>
+    <string name="visit">यात्रा</string>
+    <string name="logout">लोग आउट</string>
 </resources>
