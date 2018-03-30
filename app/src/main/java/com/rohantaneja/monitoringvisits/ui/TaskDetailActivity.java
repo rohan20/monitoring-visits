@@ -3,9 +3,7 @@ package com.rohantaneja.monitoringvisits.ui;
 /**
  * Created by Mansi sharma on 30-03-2018.
  */
-import android.app.Activity;
 import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Handler;
@@ -35,7 +33,7 @@ public class TaskDetailActivity extends FragmentActivity implements
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
+            setContentView(R.layout.taskdetailactivity);
             Button btn_click = (Button) findViewById(R.id.btn_click);
             btn_click.setOnClickListener(new View.OnClickListener() {
 
