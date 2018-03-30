@@ -7,11 +7,19 @@ import android.widget.Toast;
 
 import com.rohantaneja.monitoringvisits.BaseActivity;
 import com.rohantaneja.monitoringvisits.R;
+import com.rohantaneja.monitoringvisits.model.User;
+import com.rohantaneja.monitoringvisits.network.RESTAdapter;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SignUpActivity extends BaseActivity {
 
     EditText name,password,confirmedPassword,email;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +64,25 @@ public class SignUpActivity extends BaseActivity {
         else{
             //Intent intent(SignUpActivity.this,);
             //startActivity(intent);
+
+            Call<User> call = RESTAdapter.getInstance().getMinistryDataAPI().signUp(nameString,emailString,pass);
+            call.enqueue(new Callback<User>() {
+                @Override
+                public void onResponse(Call<User> call, Response<User> response) {
+                    User user = response.body();
+                    if(user != null){
+
+                    }
+                    else {
+                       //TODO
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<User> call, Throwable t) {
+                    showToast(t.getMessage());
+                }
+            });
 
             Toast.makeText(SignUpActivity.this,"Success!",Toast.LENGTH_LONG).show();
         }
