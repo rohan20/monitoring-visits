@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
+      <module fileurl="file://C:\Users\Mansi sharma\Desktop\monitoring-visits\MonitoringVisits.iml" filepath="C:\Users\Mansi sharma\Desktop\monitoring-visits\MonitoringVisits.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\Mansi sharma\Desktop\monitoring-visits\app\app.iml" filepath="C:\Users\Mansi sharma\Desktop\monitoring-visits\app\app.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+>>>>>>> 5356f15641fee7540854ad3498294061ef81a981
       <module fileurl="file://$PROJECT_DIR$/monitoring-visits.iml" filepath="$PROJECT_DIR$/monitoring-visits.iml" />
     </modules>
   </component>
