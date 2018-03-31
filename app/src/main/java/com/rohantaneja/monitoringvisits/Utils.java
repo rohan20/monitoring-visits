@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * Created by ralph on 31/03/18.
  */
 
-public class utils {
+public class Utils {
 
 
     public static void saveRetrofitTasks(ArrayList<Task> tasks, Context context){

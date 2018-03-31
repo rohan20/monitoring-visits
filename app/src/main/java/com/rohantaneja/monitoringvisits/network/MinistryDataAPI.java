@@ -1,6 +1,7 @@
 package com.rohantaneja.monitoringvisits.network;
 
 import com.rohantaneja.monitoringvisits.model.User;
+import com.rohantaneja.monitoringvisits.network.response.TasksResponse;
 import com.rohantaneja.monitoringvisits.network.response.VisitsResponse;
 
 import retrofit2.Call;
@@ -23,5 +24,8 @@ public interface MinistryDataAPI {
 
     @GET("visitService/getAll")
     Call<VisitsResponse> getVisits(@Query("taskId") int taskId);
+
+    @GET("taskService/getAll")
+    Call<TasksResponse> getTasks(int userId);
 
 }
