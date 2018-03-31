@@ -4,10 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:padding="16dp"
     tools:context="com.rohantaneja.monitoringvisits.ui.VisitActivity">
-
-    <!--TODO empty view for providing location-->
 
     <TextView
         android:id="@+id/no_location_text_view"
@@ -17,6 +15,7 @@
         android:gravity="center"
         android:text="Please provide your location to start the visit"
         android:textSize="22sp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,6 +28,7 @@
         android:layout_marginBottom="16dp"
         android:contentDescription="@null"
         android:src="@drawable/location"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/no_location_text_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -43,13 +43,108 @@
         android:paddingStart="16dp"
         android:text="Provide Location"
         android:textColor="@android:color/white"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/no_location_text_view" />
 
-    <!--TODO A view to display location-->
 
-    <!--TODO 2 buttons: Start questionnaire or cancel visit-->
+    <android.support.v7.widget.CardView
+        android:id="@+id/visit_details_card_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardElevation="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/location_image_view"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:contentDescription="@null"
+                android:src="@drawable/location"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+
+            <TextView
+                android:id="@+id/task_name_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="Task name"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@id/location_image_view"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/latitude_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="8dp"
+                android:text="Latitude:"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/task_name_text_view" />
+
+            <TextView
+                android:id="@+id/longitude_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="Longitude:"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/latitude_text_view" />
+
+            <Button
+                android:id="@+id/start_visit_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_corners"
+                android:paddingEnd="16dp"
+                android:paddingStart="16dp"
+                android:text="Start visit"
+                android:textColor="@android:color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/longitude_text_view" />
+
+            <Button
+                android:id="@+id/cancel_visit_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_corners"
+                android:paddingEnd="16dp"
+                android:paddingStart="16dp"
+                android:text="Cancel visit"
+                android:textColor="@android:color/white"
+                app:layout_constraintStart_toEndOf="@id/start_visit_button"
+                app:layout_constraintTop_toBottomOf="@id/longitude_text_view" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/questions_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/visit_details_card_view">
+        <!--app:layoutManager="android.support.v7.widget.LinearLayoutManager"-->
+
+    </android.support.v7.widget.RecyclerView>
 
     <!--TODO Questionnaire questions-->
 
