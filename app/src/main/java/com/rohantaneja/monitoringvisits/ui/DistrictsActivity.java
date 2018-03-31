@@ -183,7 +183,11 @@ public class DistrictsActivity extends BaseActivity {
             Intent intent = new Intent(DistrictsActivity.this,LoginActivity.class);
             startActivity(intent);
         }
-
+        else if(id==R.id.viewTask)
+        {
+            Intent intent = new Intent(DistrictsActivity.this,ViewTaskActivity.class);
+            startActivity(intent);
+        }
         return super.onOptionsItemSelected(item);
     }
 }

@@ -31,24 +31,23 @@
             <!-- </intent-filter> -->
         </activity>
         <activity android:name=".ui.SignUpActivity" />
-        <activity android:name=".ui.LoginActivity" >
+        <activity android:name=".ui.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.QuestionnaireActivity">
-
-        </activity>
-        <activity android:name=".CheckboxActivity"/>
+        <activity android:name=".ui.QuestionnaireActivity"></activity>
+        <activity android:name=".CheckboxActivity" />
         <activity android:name=".ui.TaskDetailActivity" />
         <activity
             android:name=".ui.ViewPager1Activity"
             android:label="@string/title_activity_main2"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".ui.ProfileActivity"/>
-        <activity android:name=".ui.VisitActivity"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.ProfileActivity" />
+        <activity android:name=".ui.VisitActivity" />
+        <activity android:name=".ui.ViewTaskActivity"></activity>
     </application>
 
 </manifest>
