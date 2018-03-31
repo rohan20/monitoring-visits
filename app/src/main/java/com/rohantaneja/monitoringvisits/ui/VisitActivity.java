@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import com.rohantaneja.monitoringvisits.BaseActivity;
 import com.rohantaneja.monitoringvisits.R;
+import com.rohantaneja.monitoringvisits.model.Visit;
 
 public class VisitActivity extends BaseActivity {
 
@@ -16,5 +17,10 @@ public class VisitActivity extends BaseActivity {
         //TODO buttons to start questionnaire or cancel visit
         //TODO programmatically display ques
         //TODO check for internet while saving, if no internet, save to local
+        prepareData();
+    }
+
+    private void prepareData() {
+
     }
 }
