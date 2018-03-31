@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 import com.rohantaneja.monitoringvisits.BaseActivity;
 import com.rohantaneja.monitoringvisits.R;
@@ -103,6 +104,7 @@ public class SignUpActivity extends BaseActivity {
                         bundle.putString("name",user.getName());
                         bundle.putBoolean("isAdmin",user.isAdmin());
                         intent.putExtras(bundle);
+                        FirebaseInstanceId.getInstance().getToken();
                         startActivity(intent);
 
                     }
