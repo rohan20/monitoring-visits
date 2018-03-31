@@ -5,6 +5,13 @@
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools" android:layout_height="match_parent" android:layout_width="match_parent">
 
+    <TextView
+        android:text="Survey"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
