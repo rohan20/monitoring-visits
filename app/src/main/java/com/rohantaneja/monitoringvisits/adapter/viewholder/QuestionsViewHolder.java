@@ -1,5 +1,6 @@
 package com.rohantaneja.monitoringvisits.adapter.viewholder;
 
+import android.arch.persistence.room.util.StringUtil;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,6 +16,8 @@ import com.rohantaneja.monitoringvisits.util.Constants;
 
 import com.rohantaneja.monitoringvisits.R;
 import com.rohantaneja.monitoringvisits.model.Question;
+
+import java.util.List;
 
 /**
  * Created by rohantaneja on 31/03/18.
@@ -35,6 +38,46 @@ public class QuestionsViewHolder extends RecyclerView.ViewHolder {
 
     public void bindDataDynamically(Question question) {
 
+        View questionView;
+
+        switch (question.getFormat()) {
+            case Constants.TYPE_CHECKBOX:
+                questionView = LayoutInflater.from(context).inflate(R.layout.layout_checkbox_question, null);
+
+                CheckBox checkBox1 = questionView.findViewById(R.id.question_checkbox_1);
+                CheckBox checkBox2 = questionView.findViewById(R.id.question_checkbox_2);
+                CheckBox checkBox3 = questionView.findViewById(R.id.question_checkbox_3);
+                CheckBox checkBox4 = questionView.findViewById(R.id.question_checkbox_4);
+
+                List<String> optionsList = question.getOptions();
+
+                if (optionsList.get(0).isEmpty())
+                    checkBox1.setVisibility(View.GONE);
+                else
+                    checkBox1.setText(optionsList.get(0));
+                if (optionsList.get(1).isEmpty())
+                    checkBox2.setVisibility(View.GONE);
+                else
+                    checkBox2.setText(optionsList.get(1));
+                if (optionsList.get(2).isEmpty())
+                    checkBox3.setVisibility(View.GONE);
+                else
+                    checkBox3.setText(optionsList.get(2));
+                if (optionsList.get(3).isEmpty())
+                    checkBox4.setVisibility(View.GONE);
+                else
+                    checkBox4.setText(optionsList.get(3));
+                
+                break;
+
+            case Constants.TYPE_RADIOBUTTON:
+
+                break;
+
+            case Constants.TYPE_TEXT:
+
+                break;
+        }
     }
 
     public void bindData(Question question) {

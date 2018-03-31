@@ -46,11 +46,11 @@ public class VisitActivity extends BaseActivity {
         optionsList2.add("C");
 
         questionList.add(new Question(1, "Water quality?", true, "Door to Door", 45, "radio button", optionsList));
-//        questionList.add(new Question(2, "Water quality??", false, "Door to Door", 123, "check box", optionsList));
-//        questionList.add(new Question(3, "Water quality???", true, "Door to Door", 23, "radio button", optionsList2));
-//        questionList.add(new Question(3, "Water quality???", true, "Door to Door", 23, "radio button", optionsList2));
-//        questionList.add(new Question(3, "Water quality???", true, "Door to Door", 23, "radio button", optionsList2));
-//        questionList.add(new Question(3, "Water quality???", true, "Door to Door", 23, "radio button", optionsList2));
+        questionList.add(new Question(2, "Water quality??", false, "Door to Door", 123, "check box", optionsList));
+        questionList.add(new Question(3, "Water quality???", true, "Door to Door", 23, "radio button", optionsList2));
+        questionList.add(new Question(3, "Water quality???", true, "Door to Door", 23, "radio button", optionsList2));
+        questionList.add(new Question(3, "Water quality???", true, "Door to Door", 23, "radio button", optionsList2));
+        questionList.add(new Question(3, "Water quality???", true, "Door to Door", 23, "radio button", optionsList2));
 
         return questionList;
     }
