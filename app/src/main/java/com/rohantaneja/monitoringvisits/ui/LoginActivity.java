@@ -54,7 +54,6 @@ public class LoginActivity extends BaseActivity {
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if(i==EditorInfo.IME_ACTION_DONE)
                 {
-                    Toast.makeText(LoginActivity.this,"done pressed",Toast.LENGTH_LONG).show();
                     login();
                 }
                 return false;
@@ -87,9 +86,7 @@ public class LoginActivity extends BaseActivity {
         }
         else if(!emailString.matches(emailPattern))
         {
-            Log.wtf("nsfjf",String.valueOf(emailString.matches(emailPattern)));
-            text="Invalid email";
-            //Toast.makeText(LoginActivity.this,"Enter valid Email Address",Toast.LENGTH_SHORT);
+            Toast.makeText(LoginActivity.this,"Enter valid Email Address",Toast.LENGTH_SHORT).show();
             //return true;
         }
         else{
@@ -101,15 +98,28 @@ public class LoginActivity extends BaseActivity {
                 public void onResponse(Call<User> call, Response<User> response) {
                     User user = response.body();
                     progressDialog.dismiss();
-                    if(user != null){
+                    //{"oid":0} is returned in case of unregistered user
+                    if(user.getEmail() != null){
                         Gson gson = new Gson();
+
                         String userString = gson.toJson(user);
                         sharedPreferences.edit().putString("user",userString).apply();
-                        showToast("Success");
+                        Log.wtf("token:",sharedPreferences.getString("user","SIH"));
+                        Intent intent = new Intent(LoginActivity.this,DistrictsActivity.class);
+                        Log.wtf("email:",user.getEmail());
+                        Log.wtf("name",user.getName());
+                        Log.wtf("isAdmin",String.valueOf(user.isAdmin()));
+                        Bundle bundle = new Bundle();
+                        bundle.putString("email",user.getEmail());
+                        bundle.putString("name",user.getName());
+                        bundle.putBoolean("isAdmin",user.isAdmin());
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+
                     }
                     else {
                         //TODO
-                        showToast("User null");
+                        showToast("Please register first");
                         Log.wtf("error:","no data received");
 
                     }

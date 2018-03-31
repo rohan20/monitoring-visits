@@ -91,14 +91,18 @@ public class SignUpActivity extends BaseActivity {
                 public void onResponse(Call<User> call, Response<User> response) {
                     User user = response.body();
                     dialog.dismiss();
-                    if(user != null){
+                    if(user.getEmail() != null){
                         Gson gson = new Gson();
                         String userString = gson.toJson(user);
                         sharedPreferences.edit().putString("user",userString).apply();
                         showToast("Success");
-                        sharedPreferences.edit().putString("user",userString).apply();
                         Log.w("token signup",sharedPreferences.getString("user","null"));
-                        Intent intent = new Intent(SignUpActivity.this,ProfileActivity.class);
+                        Intent intent = new Intent(SignUpActivity.this,DistrictsActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("email",user.getEmail());
+                        bundle.putString("name",user.getName());
+                        bundle.putBoolean("isAdmin",user.isAdmin());
+                        intent.putExtras(bundle);
                         startActivity(intent);
 
                     }
