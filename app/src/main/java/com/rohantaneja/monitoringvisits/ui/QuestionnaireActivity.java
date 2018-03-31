@@ -20,6 +20,7 @@ import com.rohantaneja.monitoringvisits.data.MinistryDatabase;
 import com.rohantaneja.monitoringvisits.model.Question;
 import com.rohantaneja.monitoringvisits.model.QuestionAnswer;
 import com.rohantaneja.monitoringvisits.model.QuestionOption;
+import com.rohantaneja.monitoringvisits.util.Constants;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,27 +42,50 @@ public class QuestionnaireActivity extends BaseActivity {
         QuestionOption option = new QuestionOption();
         option.setId(1);
         option.setQuestionId(1);
-        option.setTitle("Option Title");
+        option.setTitle("Name");
         ArrayList<QuestionOption> options = new ArrayList<>();
         options.add(option);
-        Question q = new Question(1,"title",true,"District Visit",1,"text",options);
+        Question q = new Question(1,"Enter Your Name",true,"District Visit",1,"text",options);
 
         QuestionOption option1 = new QuestionOption();
         option1.setId(2);
         option1.setQuestionId(2);
-        option1.setTitle("Option Title 1");
+        option1.setTitle("Male");
 
         QuestionOption option2 = new QuestionOption();
         option2.setId(3);
         option2.setQuestionId(2);
-        option2.setTitle("Option Title 2");
+        option2.setTitle("Female");
         ArrayList<QuestionOption> options2 = new ArrayList<>();
         options2.add(option1);
         options2.add(option2);
-        Question question2 = new Question(2,"title 2",true,"District Visit",1,"multiple choice",options2);
+        Question question2 = new Question(2,"Gender",true,"District Visit",1, Constants.TYPE_RADIOBUTTON,options2);
 
+        QuestionOption option3 = new QuestionOption();
+        option3.setId(4);
+        option3.setQuestionId(3);
+        option3.setTitle("Car");
+
+        QuestionOption option4 = new QuestionOption();
+        option4.setId(5);
+        option4.setQuestionId(3);
+        option4.setTitle("Two Wheeler");
+
+        QuestionOption option5 = new QuestionOption();
+        option5.setId(6);
+        option5.setQuestionId(3);
+        option5.setTitle("Bicycle");
+
+
+        ArrayList<QuestionOption> options3 = new ArrayList<>();
+        options3.add(option4);
+        options3.add(option5);
+        options3.add(option3);
+
+        Question question3 = new Question(3,"What kind of transports do you have? Mark all that applies.",true,"District Visit",1,Constants.TYPE_CHECKBOX,options3);
         questions.add(q);
         questions.add(question2);
+        questions.add(question3);
 
         for(Question question:questions){
             QuestionAnswer answer = MinistryDatabase.getInstance(this).getMinistryDAO().getAnswers(question.getId());

@@ -124,7 +124,10 @@ public class QuestionView extends LinearLayout {
                 RadioGroup group = (RadioGroup) bodyContainer.getChildAt(0);
                 int id = group.getCheckedRadioButtonId();
                 RadioButton button = group.findViewById(id);
-                values.add(button.getText().toString());
+                if(button!=null){
+                    values.add(button.getText().toString());
+                }
+
                 break;
             case Constants.TYPE_TEXT:
                 EditText editText = (EditText)bodyContainer.getChildAt(0);

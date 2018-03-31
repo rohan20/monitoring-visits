@@ -39,12 +39,6 @@ Bundle bundle;
             public void onClick(View view) {
                 sharedPreferences.edit().clear().apply();
                 Log.wtf("shp",sharedPreferences.getAll().toString());
-
-                mdb.getMinistryDAO().deleteProgrammes();
-                mdb.getMinistryDAO().deleteQuestionOptions();
-                mdb.getMinistryDAO().deleteQuestions();
-                mdb.getMinistryDAO().deleteTasks();
-                mdb.getMinistryDAO().deleteVisits();
                 //Log.wtf("all",mdb.getMinistryDAO().getAllTasks().toString());
                 Intent intent = new Intent(ProfileActivity.this,LoginActivity.class);
                 startActivity(intent);
