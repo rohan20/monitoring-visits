@@ -8,6 +8,7 @@ import android.content.Context;
 import com.rohantaneja.monitoringvisits.data.dao.MinistryDAO;
 import com.rohantaneja.monitoringvisits.model.Programme;
 import com.rohantaneja.monitoringvisits.model.Question;
+import com.rohantaneja.monitoringvisits.model.QuestionAnswer;
 import com.rohantaneja.monitoringvisits.model.QuestionOption;
 import com.rohantaneja.monitoringvisits.model.Task;
 import com.rohantaneja.monitoringvisits.model.Visit;
@@ -20,6 +21,7 @@ import com.rohantaneja.monitoringvisits.model.Visit;
         Programme.class,
         Question.class,
         QuestionOption.class,
+        QuestionAnswer.class,
         Task.class,
         Visit.class},version = 1)
 public abstract class MinistryDatabase extends RoomDatabase {

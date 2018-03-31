@@ -32,13 +32,19 @@
         </activity>
         <activity android:name=".ui.SignUpActivity" />
         <activity android:name=".ui.LoginActivity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity android:name=".ui.QuestionnaireActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.QuestionnaireActivity"></activity>
         <activity android:name=".CheckboxActivity" />
         <activity android:name=".ui.TaskDetailActivity" />
         <activity

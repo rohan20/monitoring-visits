@@ -16,6 +16,8 @@ import java.util.ArrayList;
 
 public class Utils {
 
+    public static final String MCQ = "multiple choice";
+
 
     public static void saveRetrofitTasks(ArrayList<Task> tasks, Context context){
         if(tasks != null){

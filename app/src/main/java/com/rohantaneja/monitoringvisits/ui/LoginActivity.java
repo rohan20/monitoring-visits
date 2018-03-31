@@ -137,8 +137,6 @@ public class LoginActivity extends BaseActivity {
                 }
             });
         }
-
-
         return true;
     }
 }

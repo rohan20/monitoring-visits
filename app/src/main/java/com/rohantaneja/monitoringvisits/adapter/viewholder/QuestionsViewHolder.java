@@ -12,6 +12,7 @@ import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.rohantaneja.monitoringvisits.model.QuestionOption;
 import com.rohantaneja.monitoringvisits.util.Constants;
 
 import com.rohantaneja.monitoringvisits.R;
@@ -49,24 +50,24 @@ public class QuestionsViewHolder extends RecyclerView.ViewHolder {
                 CheckBox checkBox3 = questionView.findViewById(R.id.question_checkbox_3);
                 CheckBox checkBox4 = questionView.findViewById(R.id.question_checkbox_4);
 
-                List<String> optionsList = question.getOptions();
+                List<QuestionOption> optionsList = question.getOptions();
 
-                if (optionsList.get(0).isEmpty())
+                if (optionsList.get(0).getTitle().isEmpty())
                     checkBox1.setVisibility(View.GONE);
                 else
-                    checkBox1.setText(optionsList.get(0));
-                if (optionsList.get(1).isEmpty())
+                    checkBox1.setText(optionsList.get(0).getTitle());
+                if (optionsList.get(1).getTitle().isEmpty())
                     checkBox2.setVisibility(View.GONE);
                 else
-                    checkBox2.setText(optionsList.get(1));
-                if (optionsList.get(2).isEmpty())
+                    checkBox2.setText(optionsList.get(1).getTitle());
+                if (optionsList.get(2).getTitle().isEmpty())
                     checkBox3.setVisibility(View.GONE);
                 else
-                    checkBox3.setText(optionsList.get(2));
-                if (optionsList.get(3).isEmpty())
+                    checkBox3.setText(optionsList.get(2).getTitle());
+                if (optionsList.get(3).getTitle().isEmpty())
                     checkBox4.setVisibility(View.GONE);
                 else
-                    checkBox4.setText(optionsList.get(3));
+                    checkBox4.setText(optionsList.get(3).getTitle());
                 
                 break;
 
@@ -95,13 +96,13 @@ public class QuestionsViewHolder extends RecyclerView.ViewHolder {
                 case Constants.TYPE_CHECKBOX:
                     radioButton.setVisibility(View.GONE);
                     checkBox.setVisibility(View.VISIBLE);
-                    checkBox.setText(question.getOptions().get(j));
+                    checkBox.setText(question.getOptions().get(j).getTitle());
                     break;
 
                 case Constants.TYPE_RADIOBUTTON:
                     radioButton.setVisibility(View.VISIBLE);
                     checkBox.setVisibility(View.GONE);
-                    radioButton.setText(question.getOptions().get(j));
+                    radioButton.setText(question.getOptions().get(j).getTitle());
                     break;
             }
 
