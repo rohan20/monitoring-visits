@@ -2,8 +2,10 @@ package com.rohantaneja.monitoringvisits.ui;
 
 import android.content.Intent;
 import android.app.ExpandableListActivity;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -21,10 +23,16 @@ import com.rohantaneja.monitoringvisits.model.District;
 
 public class DistrictsActivity extends BaseActivity {
 
+    SharedPreferences sharedPreferences;
+    Bundle bundle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_districts);
+
+        sharedPreferences = getSharedPreferences("SIH",MODE_PRIVATE);
+        bundle=getIntent().getExtras();
+
 
         prepareData();
 
@@ -56,8 +64,16 @@ public class DistrictsActivity extends BaseActivity {
 
         if (id == R.id.profile) {
             Intent intent = new Intent(DistrictsActivity.this,ProfileActivity.class);
+            intent.putExtras(bundle);
             startActivity(intent);
             return true;
+        }
+        else if(id==R.id.logout)
+        {
+            sharedPreferences.edit().clear().apply();
+            Log.wtf("shp",sharedPreferences.getAll().toString());
+            Intent intent = new Intent(DistrictsActivity.this,LoginActivity.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

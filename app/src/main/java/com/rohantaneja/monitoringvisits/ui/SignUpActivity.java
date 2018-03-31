@@ -1,9 +1,10 @@
 package com.rohantaneja.monitoringvisits.ui;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
+import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -90,15 +91,25 @@ public class SignUpActivity extends BaseActivity {
                 public void onResponse(Call<User> call, Response<User> response) {
                     User user = response.body();
                     dialog.dismiss();
-                    if(user != null){
+                    if(user.getEmail() != null){
                         Gson gson = new Gson();
                         String userString = gson.toJson(user);
                         sharedPreferences.edit().putString("user",userString).apply();
                         showToast("Success");
+                        Log.w("token signup",sharedPreferences.getString("user","null"));
+                        Intent intent = new Intent(SignUpActivity.this,DistrictsActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("email",user.getEmail());
+                        bundle.putString("name",user.getName());
+                        bundle.putBoolean("isAdmin",user.isAdmin());
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+
                     }
                     else {
                        //TODO
                         showToast("User null");
+                        Log.wtf("error:","no data received");
                     }
                 }
 
