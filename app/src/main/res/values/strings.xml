@@ -23,5 +23,7 @@
     <string name="name">Name</string>
     <string name="visit">Visit</string>
     <string name="logout">Log Out</string>
+    <string name="what_is_your_age">What is your age?</string>
+    <string name="enter_text_here">Enter text here...</string>
 
 </resources>

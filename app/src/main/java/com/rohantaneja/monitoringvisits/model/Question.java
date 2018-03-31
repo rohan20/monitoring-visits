@@ -2,7 +2,10 @@ package com.rohantaneja.monitoringvisits.model;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
+
+import java.util.List;
 
 /**
  * Created by ralph on 30/03/18.
@@ -20,6 +23,21 @@ public class Question {
     private String visitType;
     private int programmeId;
     private String format;
+    @Ignore
+    private List<String> options;
+
+    public Question() {
+    }
+
+    public Question(int id, String title, boolean required, String visitType, int programmeId, String format, List<String> options) {
+        this.id = id;
+        this.title = title;
+        this.required = required;
+        this.visitType = visitType;
+        this.programmeId = programmeId;
+        this.format = format;
+        this.options = options;
+    }
 
     public int getId() {
         return id;
@@ -67,5 +85,13 @@ public class Question {
 
     public void setFormat(String format) {
         this.format = format;
+    }
+
+    public List<String> getOptions() {
+        return options;
+    }
+
+    public void setOptions(List<String> options) {
+        this.options = options;
     }
 }

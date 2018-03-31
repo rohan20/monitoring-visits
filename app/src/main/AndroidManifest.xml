@@ -33,18 +33,24 @@
         <activity android:name=".ui.SignUpActivity" />
         <activity android:name=".ui.LoginActivity" />
         <activity android:name=".ui.QuestionnaireActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
         <activity android:name=".CheckboxActivity"/>
         <activity android:name=".ui.TaskDetailActivity"/>
         <activity android:name=".ui.SignUpActivity" />
         <activity android:name=".ui.LoginActivity" />
         <activity android:name=".ui.ProfileActivity"></activity>
-        <activity android:name=".ui.VisitActivity"></activity>
+        <activity android:name=".ui.VisitActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

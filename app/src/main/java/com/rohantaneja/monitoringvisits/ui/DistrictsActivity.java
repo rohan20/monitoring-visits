@@ -26,8 +26,6 @@ public class DistrictsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_districts);
 
-        prepareData();
-
         ExpandableListView districtsExpandableListView = findViewById(R.id.districts_expandable_list_view);
         ExpandableDistrictsAdapter districtsAdapter = new ExpandableDistrictsAdapter(this, prepareData());
         districtsExpandableListView.setAdapter(districtsAdapter);
@@ -47,9 +45,6 @@ public class DistrictsActivity extends BaseActivity {
         districtsList.add(new District(4, "South West", 35, 24, 99));
         return districtsList;
     }
-
-
-}
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
