@@ -109,6 +109,7 @@
         android:background="@drawable/rounded_corners"
         android:text="Show Location"
         android:padding="16dp"
+        android:focusable="false"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -52,7 +52,7 @@ VisitTaskAdapter adapter;
                 @Override
                 public void onResponse(Call<TasksResponse> call, Response<TasksResponse> response) {
                     TasksResponse tasksResponse = response.body();
-                    if(tasksResponse != null){
+                    if(tasksResponse != null && tasksResponse.taskList != null){
                         Utils.saveRetrofitTasks(tasksResponse.taskList,ViewTaskActivity.this);
                         adapter=new VisitTaskAdapter(tasksResponse, new VisitTaskAdapter.TaskClickListener() {
                             @Override

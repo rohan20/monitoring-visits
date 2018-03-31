@@ -92,8 +92,8 @@ public class VisitActivity extends BaseActivity {
     }
 
     public void startVisit(View view) {
-//        Intent i = new Intent(this, QuestionnaireActivity.class);
-//        startActivity(i);
+        Intent i = new Intent(this, QuestionnaireActivity.class);
+        startActivity(i);
     }
 
 //    private List<Question> prepareData() {
