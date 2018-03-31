@@ -35,7 +35,7 @@ public class VisitActivity extends BaseActivity {
         //TODO programmatically display ques
         //TODO check for internet while saving, if no internet, save to local
 
-        List<Question> questionList = prepareData();
+        List<Question> questionList = new ArrayList<>();
 
         RecyclerView questionsRecyclerView = findViewById(R.id.questions_recycler_view);
         questionsRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
@@ -90,28 +90,28 @@ public class VisitActivity extends BaseActivity {
         });
     }
 
-    private List<Question> prepareData() {
-        List<Question> questionList = new ArrayList<>();
-
-        List<String> optionsList = new ArrayList<>();
-        optionsList.add("A");
-        optionsList.add("B");
-        optionsList.add("C");
-        optionsList.add("D");
-
-        List<String> optionsList2 = new ArrayList<>();
-        optionsList2.add("A");
-        optionsList2.add("C");
-
-        questionList.add(new Question(1, "Water quality?", true, "Door to Door", 45, "radio button", optionsList));
-        questionList.add(new Question(2, "Water quality??", false, "Door to Door", 123, "check box", optionsList));
-        questionList.add(new Question(3, "Water quality???", true, "Door to Door", 23, "radio button", optionsList2));
-        questionList.add(new Question(3, "Water quality???", true, "Door to Door", 23, "radio button", optionsList2));
-        questionList.add(new Question(3, "Water quality???", true, "Door to Door", 23, "radio button", optionsList2));
-        questionList.add(new Question(3, "Water quality???", true, "Door to Door", 23, "radio button", optionsList2));
-
-        return questionList;
-    }
+//    private List<Question> prepareData() {
+//        List<Question> questionList = new ArrayList<>();
+//
+//        List<String> optionsList = new ArrayList<>();
+//        optionsList.add("A");
+//        optionsList.add("B");
+//        optionsList.add("C");
+//        optionsList.add("D");
+//
+//        List<String> optionsList2 = new ArrayList<>();
+//        optionsList2.add("A");
+//        optionsList2.add("C");
+//
+//        questionList.add(new Question(1, "Water quality?", true, "Door to Door", 45, "radio button", optionsList));
+//        questionList.add(new Question(2, "Water quality??", false, "Door to Door", 123, "check box", optionsList));
+//        questionList.add(new Question(3, "Water quality???", true, "Door to Door", 23, "radio button", optionsList2));
+//        questionList.add(new Question(3, "Water quality???", true, "Door to Door", 23, "radio button", optionsList2));
+//        questionList.add(new Question(3, "Water quality???", true, "Door to Door", 23, "radio button", optionsList2));
+//        questionList.add(new Question(3, "Water quality???", true, "Door to Door", 23, "radio button", optionsList2));
+//
+//        return questionList;
+//    }
 }
 
 

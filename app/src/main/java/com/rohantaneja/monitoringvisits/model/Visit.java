@@ -41,6 +41,9 @@ public class Visit {
 
     private boolean isSynced;
 
+    public Visit() {
+    }
+
     public Visit(int id, String clientId, int taskId, String officerRemark, String adminRemark, Double lat, Double longitude, VisitAction action, Task task) {
         this.id = id;
         this.clientId = clientId;
@@ -69,8 +72,8 @@ public class Visit {
         isSynced = synced;
     }
 
-    public void createClientId() {
-        if (this.clientId == null) {
+    public void createClientId(){
+        if(this.clientId == null){
             this.clientId = UUID.randomUUID().toString();
         }
     }
@@ -139,15 +142,10 @@ public class Visit {
         this.action = action;
     }
 
-    public class VisitAction {
+    public static class VisitAction {
 
         private int actionId;
         private String action;
-
-        public VisitAction(int actionId, String action) {
-            this.actionId = actionId;
-            this.action = action;
-        }
 
         public int getActionId() {
             return actionId;
