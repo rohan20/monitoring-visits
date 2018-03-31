@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.rohantaneja.monitoringvisits.R;
+import com.rohantaneja.monitoringvisits.data.MinistryDatabase;
 
 public class ProfileActivity extends AppCompatActivity {
 Button logout;
@@ -33,12 +34,21 @@ Bundle bundle;
             if(bundle.containsKey("isAdmin"))
                 isAdmin.setText("isAdmin: " + (bundle.getBoolean("isAdmin")?"Yes":"No"));
         }
+        final MinistryDatabase mdb=MinistryDatabase.getInstance(ProfileActivity.this);
+        Log.wtf("all",mdb.getMinistryDAO().getAllTasks().toString());
         logout = findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sharedPreferences.edit().clear().apply();
                 Log.wtf("shp",sharedPreferences.getAll().toString());
+
+                mdb.getMinistryDAO().deleteProgrammes();
+                mdb.getMinistryDAO().deleteQuestionOptions();
+                mdb.getMinistryDAO().deleteQuestions();
+                mdb.getMinistryDAO().deleteTasks();
+                mdb.getMinistryDAO().deleteVisits();
+                //Log.wtf("all",mdb.getMinistryDAO().getAllTasks().toString());
                 Intent intent = new Intent(ProfileActivity.this,LoginActivity.class);
                 startActivity(intent);
             }

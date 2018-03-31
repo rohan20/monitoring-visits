@@ -64,5 +64,21 @@ public interface MinistryDAO {
     @Query("SELECT * FROM programmes where programmeId = :id")
     Programme getProgramme(int id);
 
+    @Query("DELETE FROM programmes")
+    void deleteProgrammes();
+
+    @Query("DELETE FROM questions")
+    void deleteQuestions();
+
+    @Query("DELETE FROM questionOptions")
+    void deleteQuestionOptions();
+
+    @Query("DELETE FROM tasks")
+    void deleteTasks();
+
+
+    @Query("DELETE FROM visits")
+    void deleteVisits();
+
 
 }
