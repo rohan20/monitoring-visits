@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -37,7 +38,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class TaskDetailActivity extends FragmentActivity implements
+public class TaskDetailActivity extends AppCompatActivity implements
         View.OnClickListener {
 
     TextView btnDatePicker, btnDatePicker2;
@@ -61,7 +62,7 @@ public class TaskDetailActivity extends FragmentActivity implements
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(Tasgit kDetailActivity.this, VisitActivity.class);
+                Intent intent = new Intent(TaskDetailActivity.this, VisitActivity.class);
                 startActivity(intent);
             }
         });
