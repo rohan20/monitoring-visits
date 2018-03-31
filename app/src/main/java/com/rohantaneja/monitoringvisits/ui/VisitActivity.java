@@ -2,6 +2,7 @@ package com.rohantaneja.monitoringvisits.ui;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -88,6 +89,11 @@ public class VisitActivity extends BaseActivity {
 
 
         });
+    }
+
+    public void startVisit(View view) {
+//        Intent i = new Intent(this, QuestionnaireActivity.class);
+//        startActivity(i);
     }
 
 //    private List<Question> prepareData() {

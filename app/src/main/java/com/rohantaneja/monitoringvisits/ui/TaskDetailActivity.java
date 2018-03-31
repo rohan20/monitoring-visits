@@ -61,7 +61,7 @@ public class TaskDetailActivity extends FragmentActivity implements
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(TaskDetailActivity.this, VisitActivity.class);
+                Intent intent = new Intent(Tasgit kDetailActivity.this, VisitActivity.class);
                 startActivity(intent);
             }
         });
@@ -164,6 +164,12 @@ public class TaskDetailActivity extends FragmentActivity implements
                     }, mYear, mMonth, mDay);
             datePickerDialog.show();
         }
+    }
+
+    public void addVisit(View view) {
+        Intent i = new Intent(this, QuestionnaireActivity.class);
+        startActivity(i);
+
     }
 }
 

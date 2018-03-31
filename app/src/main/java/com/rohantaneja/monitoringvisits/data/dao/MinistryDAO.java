@@ -7,6 +7,7 @@ import android.arch.persistence.room.Query;
 
 import com.rohantaneja.monitoringvisits.model.Programme;
 import com.rohantaneja.monitoringvisits.model.Question;
+import com.rohantaneja.monitoringvisits.model.QuestionAnswer;
 import com.rohantaneja.monitoringvisits.model.QuestionOption;
 import com.rohantaneja.monitoringvisits.model.Task;
 import com.rohantaneja.monitoringvisits.model.Visit;
@@ -79,6 +80,15 @@ public interface MinistryDAO {
 
     @Query("DELETE FROM visits")
     void deleteVisits();
+
+    @Query("SELECT * FROM questions")
+    List<Question> getAllQuestion();
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insertAnswer(QuestionAnswer answer);
+
+    @Query("SELECT * FROM ANSWERS WHERE questionId = :qid")
+    QuestionAnswer getAnswers(int qid);
 
 
 }

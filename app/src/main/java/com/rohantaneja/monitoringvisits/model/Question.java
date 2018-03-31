@@ -5,6 +5,8 @@ import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 /**
@@ -17,19 +19,41 @@ import java.util.List;
 public class Question {
 
     @PrimaryKey
+    @SerializedName("qid")
     private int id;
+    @SerializedName("question")
     private String title;
+    private String description;
     private boolean required;
     private String visitType;
     private int programmeId;
+    @Ignore
+    @SerializedName("pid")
+    private Programme programme;
     private String format;
     @Ignore
-    private List<String> options;
+    private List<QuestionOption> options;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Programme getProgramme() {
+        return programme;
+    }
+
+    public void setProgramme(Programme programme) {
+        this.programme = programme;
+    }
 
     public Question() {
     }
 
-    public Question(int id, String title, boolean required, String visitType, int programmeId, String format, List<String> options) {
+    public Question(int id, String title, boolean required, String visitType, int programmeId, String format, List<QuestionOption> options) {
         this.id = id;
         this.title = title;
         this.required = required;
@@ -38,15 +62,7 @@ public class Question {
         this.format = format;
         this.options = options;
     }
-    private String questionType;
 
-    public String getQuestionType() {
-        return questionType;
-    }
-
-    public void setQuestionType(String questionType) {
-        this.questionType = questionType;
-    }
 
     public int getId() {
         return id;
@@ -96,11 +112,11 @@ public class Question {
         this.format = format;
     }
 
-    public List<String> getOptions() {
+    public List<QuestionOption> getOptions() {
         return options;
     }
 
-    public void setOptions(List<String> options) {
+    public void setOptions(List<QuestionOption> options) {
         this.options = options;
     }
 }
