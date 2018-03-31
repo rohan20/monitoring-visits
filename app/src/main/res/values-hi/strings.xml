@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">मॉनिटरिंग विज़िट्स</string>
-    <string name="login">Log In</string>
+    <string name="name">नाम</string>
+    <string name="register">रजिस्टर</string>
+    <string name="login">लॉग इन करें</string>
+    <string name="login_title">लॉग इन</string>
+    <string name="new_user_register">नया उपयोगकर्ता? रजिस्टर।</string>
     <string name="username">Username</string>
-    <string name="password">Password</string>
-    <string name="confirm_password">Confirm Password</string>
+    <string name="password">पासवर्ड</string>
+    <string name="confirm_password">पासवर्ड की पुष्टि कीजिये</string>
     <string name="submit">Submit</string>
-    <string name="email">Email Id</string>
+    <string name="email">ईमेल आईडी</string>
     <string name="sign_up">Sign Up</string>
     <string name="how_is_the_quality_of_water">पानी की गुणवत्ता कितनी है?</string>
     <string name="poor">बहुत बुरा</string>
@@ -21,4 +25,8 @@
     <string name="save">डेटा जमा करें</string>
     <string name="cancel">इसे रद्द करें</string>
     <string name="saved">डेटा प्रस्तुत किया गया है</string>
+    <string name="visit">यात्रा</string>
+    <string name="logout">लोग आउट</string>
+    <string name="already_registered_login">पहले से रजिस्टर्ड? लॉग इन करें।</string>
+    <string name="my_tasks">मेरा काम</string>
 </resources>

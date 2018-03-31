@@ -28,14 +28,14 @@ public abstract class MinistryDatabase extends RoomDatabase {
 
     public static MinistryDatabase getInstance(Context context) {
         if(INSTANCE == null){
-         return Room.databaseBuilder(context.getApplicationContext(),MinistryDatabase.class,"ministry_database")
+         INSTANCE =  Room.databaseBuilder(context.getApplicationContext(),MinistryDatabase.class,"ministry_database")
                  .allowMainThreadQueries()
                  .build() ;
         }
         return INSTANCE;
     }
 
-    abstract MinistryDAO getMinistryDAO();
+    public abstract MinistryDAO getMinistryDAO();
 
 
 }

@@ -100,14 +100,14 @@
         android:layout_marginLeft="5dp" />
 
     <!--  <TextView
-          android:id="@+id/textView15"
+          andridd:idadressprogrammeId@+id/textView15"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginStart="15dp"
           android:layout_marginTop="24dp"
           android:text="Pick Date"
-          app:layout_constraintStart_toEndOf="@+id/textView12"
-          app:layout_constraintTop_toBottomOf="@+id/textView8"
+          app:layout_constraintStart_toEndOfadressprogrammeId@+id/textView12"
+          app:layout_constraintTop_toBottomOfadressprogrammeId@+id/textView8"
           android:layout_marginLeft="15dp" /> -->
 
     <TextView

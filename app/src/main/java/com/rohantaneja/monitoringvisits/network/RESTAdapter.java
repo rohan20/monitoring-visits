@@ -9,11 +9,20 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RESTAdapter {
 
+    private static RESTAdapter instance;
+
+    public static RESTAdapter getInstance() {
+        if(instance == null){
+            instance = new RESTAdapter();
+        }
+        return instance;
+    }
+
     private MinistryDataAPI ministryDataAPI;
 
-    public RESTAdapter(String baseUrl) {
+    private RESTAdapter() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
+                .baseUrl("http://192.168.137.1:8080/SIHMonitoring/Rest/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

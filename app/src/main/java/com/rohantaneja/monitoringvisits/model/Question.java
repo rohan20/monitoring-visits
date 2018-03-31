@@ -13,7 +13,7 @@ import java.util.List;
 
 @Entity(tableName = "questions",
         foreignKeys = @ForeignKey(entity = Programme.class,
-        parentColumns = {"id"},childColumns = {"programmeId"}))
+        parentColumns = {"programmeId"},childColumns = {"programmeId"}))
 public class Question {
 
     @PrimaryKey
@@ -37,6 +37,15 @@ public class Question {
         this.programmeId = programmeId;
         this.format = format;
         this.options = options;
+    }
+    private String questionType;
+
+    public String getQuestionType() {
+        return questionType;
+    }
+
+    public void setQuestionType(String questionType) {
+        this.questionType = questionType;
     }
 
     public int getId() {
