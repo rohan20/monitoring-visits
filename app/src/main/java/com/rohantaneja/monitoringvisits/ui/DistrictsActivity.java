@@ -172,7 +172,7 @@ public class DistrictsActivity extends BaseActivity {
 
         if (id == R.id.profile) {
             Intent intent = new Intent(DistrictsActivity.this,ProfileActivity.class);
-            intent.putExtras(bundle);
+            //intent.putExtras(bundle);
             startActivity(intent);
             return true;
         }
