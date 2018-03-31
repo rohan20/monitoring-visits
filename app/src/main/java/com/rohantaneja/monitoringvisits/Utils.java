@@ -24,7 +24,7 @@ public class Utils {
                 Programme programme = task.getProgramme();
                 if(programme != null) {
                     dao.insertProgramme(programme);
-                    task.setProgrammeId(task.getProgramme().getId());
+                    task.setProgrammeId(task.getProgramme().getProgrammeId());
                 }
             }
             dao.insertTasks(tasks);

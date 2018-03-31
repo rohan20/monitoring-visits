@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.rohantaneja.monitoringvisits.R;
 import com.rohantaneja.monitoringvisits.model.District;
+import com.rohantaneja.monitoringvisits.model.TaskData;
 
 import java.util.List;
 
@@ -19,9 +20,9 @@ import java.util.List;
 public class ExpandableDistrictsAdapter extends BaseExpandableListAdapter {
 
     private Context context;
-    private List<District> districtsList;
+    private List<TaskData> districtsList;
 
-    public ExpandableDistrictsAdapter(Context context, List<District> districtsList) {
+    public ExpandableDistrictsAdapter(Context context, List<TaskData> districtsList) {
         this.context = context;
         this.districtsList = districtsList;
     }
@@ -69,7 +70,7 @@ public class ExpandableDistrictsAdapter extends BaseExpandableListAdapter {
         }
 
         TextView districtNameTextView = view.findViewById(R.id.district_name_text_view);
-        districtNameTextView.setText(districtsList.get(groupPosition).getDistrictName());
+        districtNameTextView.setText(districtsList.get(groupPosition).getTitle());
         return view;
     }
 
@@ -83,9 +84,9 @@ public class ExpandableDistrictsAdapter extends BaseExpandableListAdapter {
         TextView tasksAssingedTextView = view.findViewById(R.id.task_assigned_statistic_value);
         TextView tasksCompletedTExtView = view.findViewById(R.id.task_completed_statistic_value);
         TextView visitsMadeTextView = view.findViewById(R.id.visits_made_statistic_value);
-        tasksAssingedTextView.setText(String.valueOf(districtsList.get(groupPosition).getNumberOfTasksAssigned()));
-        tasksCompletedTExtView.setText(String.valueOf(districtsList.get(groupPosition).getNumberOfTasksCompleted()));
-        visitsMadeTextView.setText(String.valueOf(districtsList.get(groupPosition).getNumberOfVisitsMade()));
+        tasksAssingedTextView.setText(String.valueOf(districtsList.get(groupPosition).getTasksAssigned()));
+        tasksCompletedTExtView.setText(String.valueOf(districtsList.get(groupPosition).getTasksCompleted()));
+        visitsMadeTextView.setText(String.valueOf(districtsList.get(groupPosition).getVisits()));
 
         return view;
     }

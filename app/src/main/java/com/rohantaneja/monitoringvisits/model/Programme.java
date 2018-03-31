@@ -11,19 +11,19 @@ import android.arch.persistence.room.PrimaryKey;
 public class Programme {
 
     @PrimaryKey
-    private int id;
+    private int programmeId;
     private String name;
 
-    public int getId() {
-        return id;
+    public int getProgrammeId() {
+        return programmeId;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setProgrammeId(int programmeId) {
+        this.programmeId = programmeId;
     }
 
     public void setName(String name) {

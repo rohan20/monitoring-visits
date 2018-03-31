@@ -26,6 +26,6 @@ public interface MinistryDataAPI {
     Call<VisitsResponse> getVisits(@Query("taskId") int taskId);
 
     @GET("taskService/getAll")
-    Call<TasksResponse> getTasks(int userId);
+    Call<TasksResponse> getTasks(@Query("userId") int userId);
 
 }

@@ -27,9 +27,6 @@ public interface MinistryDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertTask(Task task);
 
-    @Query("SELECT * FROM tasks WHERE districtName = :districtName")
-    List<Task> getTasksForDistrict(String districtName);
-
     @Query("SELECT * FROM tasks WHERE programmeId = :programmeId")
     List<Task> getTasksForProgramme(int programmeId);
 
@@ -63,6 +60,9 @@ public interface MinistryDAO {
 
     @Query("SELECT * FROM tasks")
     List<Task> getAllTasks();
+
+    @Query("SELECT * FROM programmes where programmeId = :id")
+    Programme getProgramme(int id);
 
 
 }

@@ -45,8 +45,9 @@ public class LoginActivity extends BaseActivity {
         if(sharedPreferences.contains("user"))
         {
             Log.wtf("token:",sharedPreferences.getString("user","temp"));
-            Intent intent = new Intent(LoginActivity.this,ProfileActivity.class);
+            Intent intent = new Intent(LoginActivity.this,DistrictsActivity.class);
             startActivity(intent);
+            finish();
         }
         password=findViewById(R.id.edittext_password_login);
         password.setOnEditorActionListener(new EditText.OnEditorActionListener(){

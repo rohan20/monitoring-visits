@@ -14,7 +14,7 @@ import com.google.gson.annotations.SerializedName;
 
 @Entity(tableName = "tasks",
         foreignKeys = @ForeignKey(entity = Programme.class,
-        parentColumns = {"id"},childColumns = {"programmeId"}))
+        parentColumns = {"programmeId"},childColumns = {"programmeId"}))
 public class Task {
 
     @PrimaryKey
@@ -104,7 +104,7 @@ public class Task {
     public static class Address {
 
         @SerializedName("aid")
-        private int id;
+        private int adressId;
 
         private String address;
         private String state;
@@ -114,12 +114,12 @@ public class Task {
         private double lat;
         private double longitude;
 
-        public int getId() {
-            return id;
+        public int getAdressId() {
+            return adressId;
         }
 
-        public void setId(int id) {
-            this.id = id;
+        public void setAdressId(int adressId) {
+            this.adressId = adressId;
         }
 
         public String getAddress() {

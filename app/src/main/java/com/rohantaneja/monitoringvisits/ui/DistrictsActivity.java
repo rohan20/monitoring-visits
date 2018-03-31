@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 import android.widget.Toolbar;
 import android.widget.ExpandableListView;
@@ -26,6 +27,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import com.rohantaneja.monitoringvisits.model.District;
+import com.rohantaneja.monitoringvisits.model.Programme;
 import com.rohantaneja.monitoringvisits.model.Task;
 import com.rohantaneja.monitoringvisits.model.TaskData;
 import com.rohantaneja.monitoringvisits.model.User;
@@ -43,9 +45,10 @@ public class DistrictsActivity extends BaseActivity {
     Bundle bundle;
 
     ProgressDialog dialog;
+    ExpandableDistrictsAdapter districtsAdapter;
 
     ArrayList<TaskData> districtTaskData = new ArrayList<>();
-    ArrayList<TaskData> programmesTaskData = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,19 +87,23 @@ public class DistrictsActivity extends BaseActivity {
 
 
 
-        prepareData();
-
         ExpandableListView districtsExpandableListView = findViewById(R.id.districts_expandable_list_view);
-        ExpandableDistrictsAdapter districtsAdapter = new ExpandableDistrictsAdapter(this, prepareData());
+        districtsAdapter = new ExpandableDistrictsAdapter(this, districtTaskData);
         districtsExpandableListView.setAdapter(districtsAdapter);
+        districtsExpandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+
+                return false;
+            }
+        });
     }
 
     public void refreshData(){
         List<Task> tasks = MinistryDatabase.getInstance(this).getMinistryDAO().getAllTasks();
         if(tasks != null){
-            Utils.saveRetrofitTasks(new ArrayList<Task>(tasks),DistrictsActivity.this);
             HashMap<String,ArrayList<Task>> districtTasks = new HashMap<>();
-            HashMap<String,ArrayList<Task>> programmesTasks = new HashMap<>();
             for(Task task:tasks){
                 String districtName = task.getAddress().getDistrict();
                 if(districtName != null){
@@ -110,20 +117,8 @@ public class DistrictsActivity extends BaseActivity {
 
                     }
                 }
-                String pName = task.getProgramme().getName();
-                if(pName != null){
-                    if(programmesTasks.containsKey(pName)){
-                        programmesTasks.get(pName).add(task);
-                    }
-                    else {
-                        ArrayList<Task> pTasks = new ArrayList<>();
-                        pTasks.add(task);
-                        programmesTasks.put(districtName,pTasks);
-                    }
-
-
-                }
             }
+            districtTaskData.clear();
             for(String key: districtTasks.keySet()){
                 ArrayList<Task> dTaskList = districtTasks.get(key);
                 TaskData taskData= new TaskData();
@@ -143,25 +138,11 @@ public class DistrictsActivity extends BaseActivity {
                     districtTaskData.add(taskData);
                 }
             }
-            for(String key: programmesTasks.keySet()){
-                ArrayList<Task> pTaskList = districtTasks.get(key);
-                TaskData taskData= new TaskData();
-                taskData.setTitle(key);
-                taskData.setType(TaskData.TYPE_PROGRAMME);
-                for(Task task:tasks){
-                    if(task.getTaskStatus().getStatus().toLowerCase().equals("completed")){
-                        taskData.setTasksCompleted(taskData.getTasksCompleted() + 1);
-                        taskData.setTasksAssigned(taskData.getTasksAssigned() + 1);
-                    }
-                    else {
-                        taskData.setTasksAssigned(taskData.getTasksAssigned() + 1);
-                    }
-                    List<Visit> visits = MinistryDatabase.getInstance(DistrictsActivity.this).getMinistryDAO().getVisitsForTask(task.getId());
-                    int count = visits.size();
-                    taskData.setVisits(taskData.getVisits() + count);
-                    programmesTaskData.add(taskData);
-                }
+
+            if(districtsAdapter != null){
+                districtsAdapter.notifyDataSetChanged();
             }
+
 
 
         }
@@ -176,10 +157,10 @@ public class DistrictsActivity extends BaseActivity {
 
     private List<District> prepareData() {
         List<District> districtsList = new ArrayList<>();
-        districtsList.add(new District(1, "North East", 122, 66, 594));
-        districtsList.add(new District(2, "South East", 251, 87, 485));
-        districtsList.add(new District(3, "North West", 11, 9, 2));
-        districtsList.add(new District(4, "South West", 35, 24, 99));
+        districtsList.add(new District(1, "North East", 12, 6, 9));
+        districtsList.add(new District(2, "South East", 25, 18, 40));
+        districtsList.add(new District(3, "North West", 11, 9, 9));
+        districtsList.add(new District(4, "South West", 35, 24, 30));
         return districtsList;
     }
 

@@ -127,7 +127,7 @@ public class Visit {
         this.action = action;
     }
 
-    static class VisitAction {
+    public static class VisitAction {
 
         private int actionId;
         private String action;
