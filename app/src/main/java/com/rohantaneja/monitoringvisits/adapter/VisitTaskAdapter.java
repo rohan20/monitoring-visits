@@ -18,10 +18,16 @@ import java.util.ArrayList;
 
 public class VisitTaskAdapter extends RecyclerView.Adapter<VisitTaskAdapter.VisitTaskViewHolder> {
 
-        private TasksResponse dataList;
+        public interface TaskClickListener {
+            void onTaskClick(Task task);
+        }
 
-        public VisitTaskAdapter(TasksResponse dataList) {
+        private TasksResponse dataList;
+        private TaskClickListener listener;
+
+        public VisitTaskAdapter(TasksResponse dataList,TaskClickListener listener) {
             this.dataList = dataList;
+            this.listener = listener;
         }
 
         @Override
@@ -32,13 +38,21 @@ public class VisitTaskAdapter extends RecyclerView.Adapter<VisitTaskAdapter.Visi
         }
 
         @Override
-        public void onBindViewHolder(VisitTaskViewHolder holder, int position) {
+        public void onBindViewHolder(final VisitTaskViewHolder holder, int position) {
             Task task = dataList.taskList.get(position);
             holder.tasknum.setText("TASK#"+position);
             holder.deadline.setText(task.getDeadline());
             Task.Address address = task.getAddress();
             holder.address.setText(address.getAddress()+", " + address.getDistrict()+", " + address.getState()+"-"+address.getPincode());
             holder.visitType.setText(task.getVisitType());
+            holder.status.setText(task.getTaskStatus().getStatus());
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Task taskClicked = dataList.taskList.get(holder.getAdapterPosition());
+                    listener.onTaskClick(taskClicked);
+                }
+            });
         }
 
         @Override
@@ -48,7 +62,8 @@ public class VisitTaskAdapter extends RecyclerView.Adapter<VisitTaskAdapter.Visi
 
         class VisitTaskViewHolder extends RecyclerView.ViewHolder {
 
-            TextView tasknum, deadline, address,visitType;
+            TextView tasknum, deadline, address,visitType,status;
+            View itemView;
 
             VisitTaskViewHolder(View itemView) {
                 super(itemView);
@@ -56,6 +71,9 @@ public class VisitTaskAdapter extends RecyclerView.Adapter<VisitTaskAdapter.Visi
                 deadline = (TextView) itemView.findViewById(R.id.deadline);
                 address = (TextView) itemView.findViewById(R.id.address);
                 visitType = (TextView) itemView.findViewById(R.id.visitType);
+                status = itemView.findViewById(R.id.status);
+                this.itemView = itemView;
+
             }
         }
     }

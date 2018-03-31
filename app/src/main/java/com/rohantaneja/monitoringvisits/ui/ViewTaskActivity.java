@@ -1,6 +1,7 @@
 package com.rohantaneja.monitoringvisits.ui;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,8 @@ import com.google.gson.Gson;
 import com.rohantaneja.monitoringvisits.R;
 import com.rohantaneja.monitoringvisits.Utils;
 import com.rohantaneja.monitoringvisits.adapter.VisitTaskAdapter;
+import com.rohantaneja.monitoringvisits.data.MinistryDatabase;
+import com.rohantaneja.monitoringvisits.model.Task;
 import com.rohantaneja.monitoringvisits.model.User;
 import com.rohantaneja.monitoringvisits.network.RESTAdapter;
 import com.rohantaneja.monitoringvisits.network.response.TasksResponse;
@@ -48,7 +51,16 @@ VisitTaskAdapter adapter;
                 public void onResponse(Call<TasksResponse> call, Response<TasksResponse> response) {
                     TasksResponse tasksResponse = response.body();
                     if(tasksResponse != null){
-                        adapter=new VisitTaskAdapter(tasksResponse);
+                        MinistryDatabase.getInstance(ViewTaskActivity.this).getMinistryDAO().insertTasks(tasksResponse.taskList);
+                        adapter=new VisitTaskAdapter(tasksResponse, new VisitTaskAdapter.TaskClickListener() {
+                            @Override
+                            public void onTaskClick(Task task) {
+                                Intent intent = new Intent(ViewTaskActivity.this,TaskDetailActivity.class);
+                                intent.putExtra("id",task.getId());
+                                startActivity(intent);
+
+                            }
+                        });
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ViewTaskActivity.this);
 
                         recyclerView.setLayoutManager(layoutManager);

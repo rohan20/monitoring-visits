@@ -45,7 +45,7 @@ public class LoginActivity extends BaseActivity {
         if(sharedPreferences.contains("user"))
         {
             Log.wtf("token:",sharedPreferences.getString("user","temp"));
-            Intent intent = new Intent(LoginActivity.this,DistrictsActivity.class);
+            Intent intent = new Intent(LoginActivity.this,ViewTaskActivity.class);
             startActivity(intent);
             finish();
         }
@@ -100,13 +100,13 @@ public class LoginActivity extends BaseActivity {
                     User user = response.body();
                     progressDialog.dismiss();
                     //{"oid":0} is returned in case of unregistered user
-                    if(user.getEmail() != null){
+                    if(user !=null && user.getEmail() != null){
                         Gson gson = new Gson();
 
                         String userString = gson.toJson(user);
                         sharedPreferences.edit().putString("user",userString).apply();
                         Log.wtf("token:",sharedPreferences.getString("user","SIH"));
-                        Intent intent = new Intent(LoginActivity.this,DistrictsActivity.class);
+                        Intent intent = new Intent(LoginActivity.this,ViewTaskActivity.class);
                         Log.wtf("email:",user.getEmail());
                         Log.wtf("name",user.getName());
                         Log.wtf("isAdmin",String.valueOf(user.isAdmin()));

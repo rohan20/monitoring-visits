@@ -38,5 +38,7 @@
     <string name="login_title">Login</string>
     <string name="register">Register</string>
     <string name="already_registered_login">Already Registered? Login.</string>
+    <string name="my_tasks">My Tasks</string>
+
 
 </resources>
