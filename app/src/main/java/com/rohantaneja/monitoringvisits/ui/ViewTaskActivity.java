@@ -53,7 +53,7 @@ VisitTaskAdapter adapter;
                 public void onResponse(Call<TasksResponse> call, Response<TasksResponse> response) {
                     TasksResponse tasksResponse = response.body();
                     if(tasksResponse != null){
-                        MinistryDatabase.getInstance(ViewTaskActivity.this).getMinistryDAO().insertTasks(tasksResponse.taskList);
+                        Utils.saveRetrofitTasks(tasksResponse.taskList,ViewTaskActivity.this);
                         adapter=new VisitTaskAdapter(tasksResponse, new VisitTaskAdapter.TaskClickListener() {
                             @Override
                             public void onTaskClick(Task task) {
