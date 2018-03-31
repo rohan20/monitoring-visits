@@ -1,6 +1,7 @@
 package com.rohantaneja.monitoringvisits.network;
 
 import com.rohantaneja.monitoringvisits.model.User;
+import com.rohantaneja.monitoringvisits.network.response.VisitsResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -19,5 +20,8 @@ public interface MinistryDataAPI {
 
     @GET("officerService/login")
     Call<User> login(@Query("email") String email,@Query("password") String password);
+
+    @GET("visitService/getAll")
+    Call<VisitsResponse> getVisits(@Query("taskId") int taskId);
 
 }

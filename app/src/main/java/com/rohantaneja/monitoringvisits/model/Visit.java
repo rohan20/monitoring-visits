@@ -1,8 +1,12 @@
 package com.rohantaneja.monitoringvisits.model;
 
+import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
+
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by ralph on 30/03/18.
@@ -16,9 +20,61 @@ import android.arch.persistence.room.PrimaryKey;
 public class Visit {
 
     @PrimaryKey
+    @SerializedName("vid")
     private int id;
     private int taskId;
-    private String action;
+    @SerializedName("remarkOfficer")
+    private String officerRemark;
+    @SerializedName("remarkAdmin")
+    private String adminRemark;
+    private Double lat;
+    private Double longitude;
+    @Embedded
+    @SerializedName("actionId")
+    private VisitAction action;
+    @Ignore
+    @SerializedName("tid")
+    private Task task;
+
+    public String getOfficerRemark() {
+        return officerRemark;
+    }
+
+    public void setOfficerRemark(String officerRemark) {
+        this.officerRemark = officerRemark;
+    }
+
+    public String getAdminRemark() {
+        return adminRemark;
+    }
+
+    public void setAdminRemark(String adminRemark) {
+        this.adminRemark = adminRemark;
+    }
+
+    public Double getLat() {
+        return lat;
+    }
+
+    public void setLat(Double lat) {
+        this.lat = lat;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public Task getTask() {
+        return task;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
+    }
 
     public int getId() {
         return id;
@@ -36,11 +92,33 @@ public class Visit {
         this.taskId = taskId;
     }
 
-    public String getAction() {
+    public VisitAction getAction() {
         return action;
     }
 
-    public void setAction(String action) {
+    public void setAction(VisitAction action) {
         this.action = action;
+    }
+
+    static class VisitAction {
+
+        private int actionId;
+        private String action;
+
+        public int getActionId() {
+            return actionId;
+        }
+
+        public void setActionId(int actionId) {
+            this.actionId = actionId;
+        }
+
+        public String getAction() {
+            return action;
+        }
+
+        public void setAction(String action) {
+            this.action = action;
+        }
     }
 }
