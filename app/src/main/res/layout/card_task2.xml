@@ -55,6 +55,19 @@
             android:layout_height="wrap_content"
             android:id="@+id/visitType"/>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status: "/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/status"/>
+        </LinearLayout>
+
 
     </LinearLayout>
 

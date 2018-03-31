@@ -18,6 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class Task {
 
     @PrimaryKey
+    @SerializedName("tid")
     private int id;
     private int programmeId;
     @SerializedName("setDate")

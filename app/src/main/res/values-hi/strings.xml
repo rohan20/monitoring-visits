@@ -28,5 +28,5 @@
     <string name="visit">यात्रा</string>
     <string name="logout">लोग आउट</string>
     <string name="already_registered_login">पहले से रजिस्टर्ड? लॉग इन करें।</string>
-
+    <string name="my_tasks">मेरा काम</string>
 </resources>

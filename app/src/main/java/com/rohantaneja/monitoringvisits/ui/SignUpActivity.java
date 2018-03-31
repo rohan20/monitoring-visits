@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 import com.rohantaneja.monitoringvisits.BaseActivity;
 import com.rohantaneja.monitoringvisits.R;
@@ -91,18 +92,19 @@ public class SignUpActivity extends BaseActivity {
                 public void onResponse(Call<User> call, Response<User> response) {
                     User user = response.body();
                     dialog.dismiss();
-                    if(user.getEmail() != null){
+                    if(user != null && user.getEmail() != null){
                         Gson gson = new Gson();
                         String userString = gson.toJson(user);
                         sharedPreferences.edit().putString("user",userString).apply();
                         showToast("Success");
                         Log.w("token signup",sharedPreferences.getString("user","null"));
-                        Intent intent = new Intent(SignUpActivity.this,DistrictsActivity.class);
+                        Intent intent = new Intent(SignUpActivity.this,ViewTaskActivity.class);
                         Bundle bundle = new Bundle();
                         bundle.putString("email",user.getEmail());
                         bundle.putString("name",user.getName());
                         bundle.putBoolean("isAdmin",user.isAdmin());
                         intent.putExtras(bundle);
+                        FirebaseInstanceId.getInstance().getToken();
                         startActivity(intent);
 
                     }

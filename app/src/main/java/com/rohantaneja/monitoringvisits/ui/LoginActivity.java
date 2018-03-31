@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 import com.rohantaneja.monitoringvisits.BaseActivity;
 import com.rohantaneja.monitoringvisits.R;
@@ -45,7 +46,7 @@ public class LoginActivity extends BaseActivity {
         if(sharedPreferences.contains("user"))
         {
             Log.wtf("token:",sharedPreferences.getString("user","temp"));
-            Intent intent = new Intent(LoginActivity.this,DistrictsActivity.class);
+            Intent intent = new Intent(LoginActivity.this,ViewTaskActivity.class);
             startActivity(intent);
             finish();
         }
@@ -100,13 +101,13 @@ public class LoginActivity extends BaseActivity {
                     User user = response.body();
                     progressDialog.dismiss();
                     //{"oid":0} is returned in case of unregistered user
-                    if(user.getEmail() != null){
+                    if(user !=null && user.getEmail() != null){
                         Gson gson = new Gson();
 
                         String userString = gson.toJson(user);
                         sharedPreferences.edit().putString("user",userString).apply();
                         Log.wtf("token:",sharedPreferences.getString("user","SIH"));
-                        Intent intent = new Intent(LoginActivity.this,DistrictsActivity.class);
+                        Intent intent = new Intent(LoginActivity.this,ViewTaskActivity.class);
                         Log.wtf("email:",user.getEmail());
                         Log.wtf("name",user.getName());
                         Log.wtf("isAdmin",String.valueOf(user.isAdmin()));
@@ -115,7 +116,9 @@ public class LoginActivity extends BaseActivity {
                         bundle.putString("name",user.getName());
                         bundle.putBoolean("isAdmin",user.isAdmin());
                         intent.putExtras(bundle);
+                        FirebaseInstanceId.getInstance().getToken();
                         startActivity(intent);
+
 
                     }
                     else {

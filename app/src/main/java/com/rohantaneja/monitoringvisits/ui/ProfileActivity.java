@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.rohantaneja.monitoringvisits.R;
+import com.rohantaneja.monitoringvisits.model.User;
 import com.rohantaneja.monitoringvisits.data.MinistryDatabase;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -22,21 +24,16 @@ Bundle bundle;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         sharedPreferences = getSharedPreferences("SIH",MODE_PRIVATE);
-        bundle=getIntent().getExtras();
-        name=findViewById(R.id.dispname);
-        email=findViewById(R.id.dispemail);
-        isAdmin = findViewById(R.id.dispisAdmin);
-        if(bundle!=null) {
-            if (bundle.containsKey("email"))
-                email.setText(bundle.getString("email"));
-            if (bundle.containsKey("name")) ;
-                name.setText(bundle.getString("name"));
-            if(bundle.containsKey("isAdmin"))
-                isAdmin.setText("isAdmin: " + (bundle.getBoolean("isAdmin")?"Yes":"No"));
-        }
+        String userString = sharedPreferences.getString("user",null);
         final MinistryDatabase mdb=MinistryDatabase.getInstance(ProfileActivity.this);
         Log.wtf("all",mdb.getMinistryDAO().getAllTasks().toString());
         logout = findViewById(R.id.logout);
+        if(userString != null) {
+            User user = new Gson().fromJson(userString, User.class);
+            email.setText(user.getEmail());
+            name.setText(user.getName());
+            isAdmin.setText("Admin Status: " + (user.isAdmin()?"Admin":"No"));
+        }
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

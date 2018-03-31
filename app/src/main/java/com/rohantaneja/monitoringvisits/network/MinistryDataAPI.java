@@ -28,4 +28,7 @@ public interface MinistryDataAPI {
     @GET("taskService/getAll")
     Call<TasksResponse> getTasks(@Query("userId") int userId);
 
+    @GET("officerService/register")
+    Call<Boolean> registerDevice(@Query("userId") int userId,@Query("gcmToken")String token);
+
 }
