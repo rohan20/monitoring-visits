@@ -12,5 +12,8 @@
         android:id="@+id/logout"
         android:title="Logout"
         app:showAsAction="never"></item>
-
+    <item
+        android:id="@+id/viewTask"
+        android:title="View Task"
+        app:showAsAction="never"></item>
 </menu>
