@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.rohantaneja.monitoringvisits.R;
@@ -42,6 +43,7 @@ VisitTaskAdapter adapter;
         if(userString != null) {
             User user = new Gson().fromJson(userString, User.class);
             Call<TasksResponse> call = RESTAdapter.getInstance().getMinistryDataAPI().getTasks(user.getId());
+            Log.wtf("URL Called", call.request().url() + "");
             dialog = new ProgressDialog(this);
             dialog.setCancelable(false);
             dialog.setMessage("Loading...");
@@ -57,6 +59,9 @@ VisitTaskAdapter adapter;
                             public void onTaskClick(Task task) {
                                 Intent intent = new Intent(ViewTaskActivity.this,TaskDetailActivity.class);
                                 intent.putExtra("id",task.getId());
+                                Bundle bundle = new Bundle();
+                                bundle.putString("name",task.getProgramme().getName());
+                                intent.putExtras(bundle);
                                 startActivity(intent);
 
                             }
