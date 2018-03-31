@@ -8,6 +8,8 @@ import android.arch.persistence.room.PrimaryKey;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.UUID;
+
 /**
  * Created by ralph on 30/03/18.
  */
@@ -22,6 +24,7 @@ public class Visit {
     @PrimaryKey
     @SerializedName("vid")
     private int id;
+    private String clientId;
     private int taskId;
     @SerializedName("remarkOfficer")
     private String officerRemark;
@@ -35,6 +38,30 @@ public class Visit {
     @Ignore
     @SerializedName("tid")
     private Task task;
+
+    private boolean isSynced;
+
+    public String getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
+
+    public boolean isSynced() {
+        return isSynced;
+    }
+
+    public void setSynced(boolean synced) {
+        isSynced = synced;
+    }
+
+    public void createClientId(){
+        if(this.clientId == null){
+            this.clientId = UUID.randomUUID().toString();
+        }
+    }
 
     public String getOfficerRemark() {
         return officerRemark;

@@ -3,6 +3,8 @@ package com.rohantaneja.monitoringvisits;
 import android.content.Context;
 
 import com.rohantaneja.monitoringvisits.data.MinistryDatabase;
+import com.rohantaneja.monitoringvisits.data.dao.MinistryDAO;
+import com.rohantaneja.monitoringvisits.model.Programme;
 import com.rohantaneja.monitoringvisits.model.Task;
 import com.rohantaneja.monitoringvisits.model.Visit;
 
@@ -17,10 +19,15 @@ public class utils {
 
     public static void saveRetrofitTasks(ArrayList<Task> tasks, Context context){
         if(tasks != null){
+            MinistryDAO dao = MinistryDatabase.getInstance(context).getMinistryDAO();
             for(Task task:tasks){
-                task.setProgrammeId(task.getProgramme().getId());
+                Programme programme = task.getProgramme();
+                if(programme != null) {
+                    dao.insertProgramme(programme);
+                    task.setProgrammeId(task.getProgramme().getId());
+                }
             }
-            MinistryDatabase.getInstance(context).getMinistryDAO().insertTasks(tasks);
+            dao.insertTasks(tasks);
         }
     }
 

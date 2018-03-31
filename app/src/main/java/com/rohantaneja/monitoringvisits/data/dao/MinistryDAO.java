@@ -4,6 +4,7 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
+import com.rohantaneja.monitoringvisits.model.Programme;
 import com.rohantaneja.monitoringvisits.model.Question;
 import com.rohantaneja.monitoringvisits.model.QuestionOption;
 import com.rohantaneja.monitoringvisits.model.Task;
@@ -55,6 +56,9 @@ public interface MinistryDAO {
 
     @Insert
     void insertQuestionOptions(ArrayList<QuestionOption> questionOptions);
+
+    @Insert
+    void insertProgramme(Programme programme);
 
 
 }
