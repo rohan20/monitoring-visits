@@ -23,6 +23,9 @@ Bundle bundle;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        setTitle("My Profile");
+
         sharedPreferences = getSharedPreferences("SIH",MODE_PRIVATE);
         String userString = sharedPreferences.getString("user",null);
         final MinistryDatabase mdb=MinistryDatabase.getInstance(ProfileActivity.this);

@@ -111,6 +111,7 @@
                 android:background="@drawable/rounded_corners"
                 android:paddingEnd="16dp"
                 android:paddingStart="16dp"
+                android:onClick="startVisit"
                 android:text="Start visit"
                 android:textColor="@android:color/white"
                 app:layout_constraintStart_toStartOf="parent"

@@ -26,6 +26,7 @@ import com.rohantaneja.monitoringvisits.model.District;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
 import com.rohantaneja.monitoringvisits.model.District;
 import com.rohantaneja.monitoringvisits.model.Programme;
 import com.rohantaneja.monitoringvisits.model.Task;
@@ -54,11 +55,13 @@ public class DistrictsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_districts);
 
-        sharedPreferences = getSharedPreferences("SIH",MODE_PRIVATE);
-        bundle=getIntent().getExtras();
-        String userString = sharedPreferences.getString("user",null);
-        if(userString != null){
-            User  user= new Gson().fromJson(userString, User.class);
+        setTitle("Districts");
+
+        sharedPreferences = getSharedPreferences("SIH", MODE_PRIVATE);
+        bundle = getIntent().getExtras();
+        String userString = sharedPreferences.getString("user", null);
+        if (userString != null) {
+            User user = new Gson().fromJson(userString, User.class);
             Call<TasksResponse> call = RESTAdapter.getInstance().getMinistryDataAPI().getTasks(user.getId());
             dialog = new ProgressDialog(this);
             dialog.setCancelable(false);
@@ -68,8 +71,8 @@ public class DistrictsActivity extends BaseActivity {
                 @Override
                 public void onResponse(Call<TasksResponse> call, Response<TasksResponse> response) {
                     TasksResponse tasksResponse = response.body();
-                    if(tasksResponse != null){
-                        Utils.saveRetrofitTasks(tasksResponse.taskList,DistrictsActivity.this);
+                    if (tasksResponse != null) {
+                        Utils.saveRetrofitTasks(tasksResponse.taskList, DistrictsActivity.this);
                         refreshData();
                     }
                     dialog.dismiss();
@@ -86,7 +89,6 @@ public class DistrictsActivity extends BaseActivity {
         }
 
 
-
         ExpandableListView districtsExpandableListView = findViewById(R.id.districts_expandable_list_view);
         districtsAdapter = new ExpandableDistrictsAdapter(this, districtTaskData);
         districtsExpandableListView.setAdapter(districtsAdapter);
@@ -100,36 +102,34 @@ public class DistrictsActivity extends BaseActivity {
         });
     }
 
-    public void refreshData(){
+    public void refreshData() {
         List<Task> tasks = MinistryDatabase.getInstance(this).getMinistryDAO().getAllTasks();
-        if(tasks != null){
-            HashMap<String,ArrayList<Task>> districtTasks = new HashMap<>();
-            for(Task task:tasks){
+        if (tasks != null) {
+            HashMap<String, ArrayList<Task>> districtTasks = new HashMap<>();
+            for (Task task : tasks) {
                 String districtName = task.getAddress().getDistrict();
-                if(districtName != null){
-                    if(districtTasks.containsKey(districtName)){
+                if (districtName != null) {
+                    if (districtTasks.containsKey(districtName)) {
                         districtTasks.get(districtName).add(task);
-                    }
-                    else {
+                    } else {
                         ArrayList<Task> dTasks = new ArrayList<>();
                         dTasks.add(task);
-                        districtTasks.put(districtName,dTasks);
+                        districtTasks.put(districtName, dTasks);
 
                     }
                 }
             }
             districtTaskData.clear();
-            for(String key: districtTasks.keySet()){
+            for (String key : districtTasks.keySet()) {
                 ArrayList<Task> dTaskList = districtTasks.get(key);
-                TaskData taskData= new TaskData();
+                TaskData taskData = new TaskData();
                 taskData.setTitle(key);
                 taskData.setType(TaskData.TYPE_DISTRICT);
-                for(Task task:dTaskList){
-                    if(task.getTaskStatus().getStatus().toLowerCase().equals("completed")){
+                for (Task task : dTaskList) {
+                    if (task.getTaskStatus().getStatus().toLowerCase().equals("completed")) {
                         taskData.setTasksCompleted(taskData.getTasksCompleted() + 1);
                         taskData.setTasksAssigned(taskData.getTasksAssigned() + 1);
-                    }
-                    else {
+                    } else {
                         taskData.setTasksAssigned(taskData.getTasksAssigned() + 1);
                     }
                     List<Visit> visits = MinistryDatabase.getInstance(DistrictsActivity.this).getMinistryDAO().getVisitsForTask(task.getId());
@@ -139,10 +139,9 @@ public class DistrictsActivity extends BaseActivity {
                 }
             }
 
-            if(districtsAdapter != null){
+            if (districtsAdapter != null) {
                 districtsAdapter.notifyDataSetChanged();
             }
-
 
 
         }
@@ -165,27 +164,22 @@ public class DistrictsActivity extends BaseActivity {
     }
 
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
         if (id == R.id.profile) {
-            Intent intent = new Intent(DistrictsActivity.this,ProfileActivity.class);
+            Intent intent = new Intent(DistrictsActivity.this, ProfileActivity.class);
             //intent.putExtras(bundle);
             startActivity(intent);
             return true;
-        }
-        else if(id==R.id.logout)
-        {
+        } else if (id == R.id.logout) {
             sharedPreferences.edit().clear().apply();
-            Log.wtf("shp",sharedPreferences.getAll().toString());
-            Intent intent = new Intent(DistrictsActivity.this,LoginActivity.class);
+            Log.wtf("shp", sharedPreferences.getAll().toString());
+            Intent intent = new Intent(DistrictsActivity.this, LoginActivity.class);
             startActivity(intent);
-        }
-        else if(id==R.id.viewTask)
-        {
-            Intent intent = new Intent(DistrictsActivity.this,ViewTaskActivity.class);
+        } else if (id == R.id.viewTask) {
+            Intent intent = new Intent(DistrictsActivity.this, ViewTaskActivity.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
