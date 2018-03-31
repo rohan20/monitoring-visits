@@ -41,6 +41,18 @@ public class Visit {
 
     private boolean isSynced;
 
+    public Visit(int id, String clientId, int taskId, String officerRemark, String adminRemark, Double lat, Double longitude, VisitAction action, Task task) {
+        this.id = id;
+        this.clientId = clientId;
+        this.taskId = taskId;
+        this.officerRemark = officerRemark;
+        this.adminRemark = adminRemark;
+        this.lat = lat;
+        this.longitude = longitude;
+        this.action = action;
+        this.task = task;
+    }
+
     public String getClientId() {
         return clientId;
     }
@@ -57,8 +69,8 @@ public class Visit {
         isSynced = synced;
     }
 
-    public void createClientId(){
-        if(this.clientId == null){
+    public void createClientId() {
+        if (this.clientId == null) {
             this.clientId = UUID.randomUUID().toString();
         }
     }
@@ -127,10 +139,15 @@ public class Visit {
         this.action = action;
     }
 
-    public static class VisitAction {
+    public class VisitAction {
 
         private int actionId;
         private String action;
+
+        public VisitAction(int actionId, String action) {
+            this.actionId = actionId;
+            this.action = action;
+        }
 
         public int getActionId() {
             return actionId;
