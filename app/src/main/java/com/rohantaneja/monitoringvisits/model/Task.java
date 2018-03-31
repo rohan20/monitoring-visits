@@ -15,8 +15,7 @@ import com.google.gson.annotations.SerializedName;
 @Entity(tableName = "tasks",
         foreignKeys = @ForeignKey(entity = Programme.class,
         parentColumns = {"programmeId"},childColumns = {"programmeId"}))
-public
-class Task {
+public class Task {
 
     @PrimaryKey
     private int id;
